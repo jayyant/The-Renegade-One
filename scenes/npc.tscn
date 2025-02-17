@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bbss8fhgautco"]
 
-[ext_resource type="Script" path="res://scenes/npc.gd" id="1_3g1le"]
+[ext_resource type="Script" path="res://scripts/npc.gd" id="1_3g1le"]
 
 [sub_resource type="Gradient" id="Gradient_do33p"]
 interpolation_mode = 1

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_x8khu"]
 
+
 [sub_resource type="Gradient" id="Gradient_rgpx1"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0.422078, 0.616883)

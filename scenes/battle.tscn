@@ -20,6 +20,4 @@ texture = SubResource("GradientTexture1D_qje30")
 position = Vector2(425, 425)
 
 [node name="NPC" parent="." instance=ExtResource("2_oj423")]
-position = Vector2(925, 247)
-
-[connection signal="interaction" from="RPGPlayer" to="NPC" method="_on_rpg_player_interaction"]
+position = Vector2(905, 206)
