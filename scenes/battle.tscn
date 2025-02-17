@@ -1,3 +1,25 @@
-[gd_scene format=3 uid="uid://bp780ocnjruxn"]
+[gd_scene load_steps=5 format=3 uid="uid://bp780ocnjruxn"]
+
+[ext_resource type="PackedScene" uid="uid://cql4gpmc6vl4s" path="res://scenes/rpg_player.tscn" id="1_ffq22"]
+[ext_resource type="PackedScene" uid="uid://bbss8fhgautco" path="res://scenes/npc.tscn" id="2_oj423"]
+
+[sub_resource type="Gradient" id="Gradient_onmpi"]
+interpolation_mode = 1
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qje30"]
+gradient = SubResource("Gradient_onmpi")
 
 [node name="battle" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1156.0
+offset_bottom = 659.0
+texture = SubResource("GradientTexture1D_qje30")
+
+[node name="RPGPlayer" parent="." instance=ExtResource("1_ffq22")]
+position = Vector2(425, 425)
+
+[node name="NPC" parent="." instance=ExtResource("2_oj423")]
+position = Vector2(925, 247)
+
+[connection signal="interaction" from="RPGPlayer" to="NPC" method="_on_rpg_player_interaction"]

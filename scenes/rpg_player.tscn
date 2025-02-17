@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cql4gpmc6vl4s"]
+
+[ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_x8khu"]
+
+[sub_resource type="Gradient" id="Gradient_rgpx1"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.422078, 0.616883)
+colors = PackedColorArray(0.821911, 2.62313e-06, 7.70092e-07, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jhr1s"]
+gradient = SubResource("Gradient_rgpx1")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cycqk"]
+size = Vector2(75, 69.25)
+
+[node name="RPGPlayer" type="CharacterBody2D"]
+script = ExtResource("1_x8khu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -29.0067)
+scale = Vector2(0.291196, -67.9865)
+texture = SubResource("GradientTexture1D_jhr1s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, -29.625)
+shape = SubResource("RectangleShape2D_cycqk")
