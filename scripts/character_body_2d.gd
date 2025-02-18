@@ -14,7 +14,13 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 
+<<<<<<< HEAD
 	var direction = Input.get_vector("moveLeft","moveRight","moveUp","moveDown")
+=======
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction = Input.get_vector("leftMove","rightMove","upMove","downMove")
+>>>>>>> ee8e22cbb515147b5bdd351b3f3a9de63a110b4e
 	#if direction.y < 0:
 		#animated_sprite.flip_h = false
 	#else:

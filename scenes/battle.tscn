@@ -229,6 +229,7 @@ libraries = {
 [node name="Dialogue" parent="RPGPlayer" instance=ExtResource("5_rb5n7")]
 
 [node name="NPC" parent="." instance=ExtResource("2_oj423")]
+<<<<<<< HEAD
 position = Vector2(724, 587)
 
 [node name="Door" parent="." instance=ExtResource("6_jps7q")]
@@ -248,3 +249,6 @@ script = ExtResource("9_5y5d0")
 [connection signal="notnear" from="NPC" to="RPGPlayer" method="_on_npc_notnear"]
 [connection signal="neardoor" from="Door" to="RPGPlayer" method="_on_door_neardoor"]
 [connection signal="notneardoor" from="Door" to="RPGPlayer" method="_on_door_notneardoor"]
+=======
+position = Vector2(905, 206)
+>>>>>>> ee8e22cbb515147b5bdd351b3f3a9de63a110b4e
