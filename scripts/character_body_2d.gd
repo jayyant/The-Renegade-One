@@ -3,17 +3,17 @@ extends CharacterBody2D
 signal interaction
 
 @export var SPEED = 200.0
+@onready var interaction_prompt: Control = $InteractionPrompt
+@onready var interaction_menu: CanvasLayer = $InteractionMenu
+
 
 
 func _ready() -> void:
-	pass
-	
+	interaction_prompt.hide()
 
 
 func _physics_process(delta: float) -> void:
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_vector("moveLeft","moveRight","moveUp","moveDown")
 	#if direction.y < 0:
 		#animated_sprite.flip_h = false
@@ -38,3 +38,24 @@ func _physics_process(delta: float) -> void:
 func interact():
 	if Input.is_action_just_pressed("Interact"):
 		emit_signal("interaction")
+		interaction_prompt.hide()
+
+func _on_npc_near() -> void:
+	interaction_prompt.show()
+
+
+func _on_npc_notnear() -> void:
+	interaction_prompt.hide()
+
+
+func _on_leave_pressed() -> void:
+	set_physics_process(true)
+	interaction_menu.hide()
+
+
+func _on_door_neardoor() -> void:
+	interaction_prompt.show()
+
+
+func _on_door_notneardoor() -> void:
+	interaction_prompt.hide()

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqla3bddjl8hs"]
+
+[ext_resource type="FontFile" uid="uid://b04llu46act52" path="res://assets/fonts/clacon2.ttf" id="1_7vucv"]
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_b4l3x"]
+[ext_resource type="Texture2D" uid="uid://te30kbgb6gmd" path="res://assets/ui/dialogbox.png" id="1_lfhhb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_62eew"]
+font = ExtResource("1_7vucv")
+font_size = 26
+font_color = Color(3.29696e-06, 0.544774, 0.0460076, 1)
+
+[node name="Dialogue" type="CanvasLayer"]
+script = ExtResource("1_b4l3x")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 150.0
+offset_top = 330.0
+offset_right = 975.0
+offset_bottom = 652.0
+texture = ExtResource("1_lfhhb")
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 32.0
+offset_right = 473.0
+offset_bottom = 64.0
+text = "You have encountered a rat!"
+label_settings = SubResource("LabelSettings_62eew")

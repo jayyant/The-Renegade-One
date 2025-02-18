@@ -1,7 +1,7 @@
 extends Area2D
 
-signal near
-signal notnear
+signal neardoor
+signal notneardoor
 signal interacted
 
 var nearby = false
@@ -14,9 +14,9 @@ func _ready() -> void:
 	interaction_menu.hide()
 
 func _on_body_entered(body: Node2D) -> void:
-	interaction_menu.interactionType = "NPC"
+	interaction_menu.interactionType = "Door"
 	nearby = true
-	near.emit()
+	neardoor.emit()
 
 
 
@@ -29,4 +29,4 @@ func interactionCore():
 
 func _on_body_exited(body: Node2D) -> void:
 	nearby = false
-	notnear.emit()
+	notneardoor.emit()

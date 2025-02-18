@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bbss8fhgautco"]
 
-[ext_resource type="Script" path="res://scenes/npc.gd" id="1_3g1le"]
+[ext_resource type="Script" path="res://scripts/npc.gd" id="1_3g1le"]
 
 [sub_resource type="Gradient" id="Gradient_do33p"]
 interpolation_mode = 1
@@ -13,7 +13,9 @@ gradient = SubResource("Gradient_do33p")
 size = Vector2(58, 52)
 
 [node name="NPC" type="Area2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_3g1le")
+metadata/Name = "John Melon"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.00001, -14.25)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cql4gpmc6vl4s"]
+[gd_scene load_steps=6 format=3 uid="uid://cql4gpmc6vl4s"]
 
 [ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_x8khu"]
+[ext_resource type="Texture2D" uid="uid://bdyt4oujqlxdj" path="res://assets/ui/Fnew.png" id="2_qu4xa"]
 
 [sub_resource type="Gradient" id="Gradient_rgpx1"]
 interpolation_mode = 2
@@ -24,3 +25,19 @@ texture = SubResource("GradientTexture1D_jhr1s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.5, -29.625)
 shape = SubResource("RectangleShape2D_cycqk")
+
+[node name="InteractionPrompt" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 27.0
+offset_bottom = 38.0
+
+[node name="Image" type="TextureRect" parent="InteractionPrompt"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -90.0
+offset_right = 168.0
+offset_bottom = -53.0
+texture = ExtResource("2_qu4xa")
+expand_mode = 1
