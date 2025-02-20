@@ -15,8 +15,9 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	interaction_menu.interactionType = "NPC"
-	nearby = true
-	near.emit()
+	if body == rpg_player:
+		nearby = true
+		near.emit()
 
 
 
@@ -28,5 +29,6 @@ func interactionCore():
 
 
 func _on_body_exited(body: Node2D) -> void:
-	nearby = false
-	notnear.emit()
+	if body == rpg_player:
+		nearby = false
+		notnear.emit()

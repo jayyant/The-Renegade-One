@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cn474ub5lko2k"]
+
+[ext_resource type="FontFile" uid="uid://b04llu46act52" path="res://assets/fonts/clacon2.ttf" id="1_srk5h"]
+
+[resource]
+font = ExtResource("1_srk5h")
+font_size = 32
+font_color = Color(3.29696e-06, 0.544774, 0.0460076, 1)

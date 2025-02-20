@@ -13,10 +13,12 @@ func _ready() -> void:
 	rpg_player.interaction.connect(interactionCore)
 	interaction_menu.hide()
 
+
 func _on_body_entered(body: Node2D) -> void:
 	interaction_menu.interactionType = "Door"
-	nearby = true
-	neardoor.emit()
+	if body == rpg_player:
+		nearby = true
+		neardoor.emit()
 
 
 
@@ -28,5 +30,6 @@ func interactionCore():
 
 
 func _on_body_exited(body: Node2D) -> void:
-	nearby = false
-	notneardoor.emit()
+	if body == rpg_player:
+		nearby = false
+		notneardoor.emit()

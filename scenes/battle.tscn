@@ -4,10 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://te30kbgb6gmd" path="res://assets/ui/dialogbox.png" id="2_krlu5"]
 [ext_resource type="PackedScene" uid="uid://bbss8fhgautco" path="res://scenes/npc.tscn" id="2_oj423"]
 [ext_resource type="Script" path="res://scripts/interaction_menu.gd" id="2_u6rp3"]
-[ext_resource type="FontFile" uid="uid://b04llu46act52" path="res://assets/fonts/clacon2.ttf" id="3_vhdf1"]
+[ext_resource type="LabelSettings" uid="uid://cn474ub5lko2k" path="res://scripts/text.tres" id="4_u57fi"]
 [ext_resource type="PackedScene" uid="uid://cqla3bddjl8hs" path="res://scenes/dialogue.tscn" id="5_rb5n7"]
 [ext_resource type="PackedScene" uid="uid://div2qss7k4i5j" path="res://scenes/door.tscn" id="6_jps7q"]
-[ext_resource type="PackedScene" uid="uid://bkyuhauaols0n" path="res://scenes/game_manager.tscn" id="8_63dn5"]
 [ext_resource type="Script" path="res://scripts/all_dialogues.gd" id="9_5y5d0"]
 
 [sub_resource type="Gradient" id="Gradient_onmpi"]
@@ -17,11 +16,6 @@ colors = PackedColorArray(0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_qje30"]
 gradient = SubResource("Gradient_onmpi")
-
-[sub_resource type="LabelSettings" id="LabelSettings_8kkf7"]
-font = ExtResource("3_vhdf1")
-font_size = 32
-font_color = Color(3.29696e-06, 0.544774, 0.0460076, 1)
 
 [sub_resource type="Gradient" id="Gradient_p5hu8"]
 interpolation_mode = 1
@@ -130,6 +124,13 @@ _data = {
 "animate text": SubResource("Animation_27wdp")
 }
 
+[sub_resource type="Gradient" id="Gradient_b440w"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.470076, 0.470076, 0.470076, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n60ls"]
+gradient = SubResource("Gradient_b440w")
+
 [node name="battle" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -166,6 +167,7 @@ position = Vector2(603, 580)
 [node name="Camera2D" type="Camera2D" parent="RPGPlayer"]
 
 [node name="InteractionMenu" type="CanvasLayer" parent="RPGPlayer"]
+visible = false
 script = ExtResource("2_u6rp3")
 
 [node name="TextureRect" type="TextureRect" parent="RPGPlayer/InteractionMenu"]
@@ -181,7 +183,7 @@ offset_left = 39.0
 offset_top = 32.0
 offset_right = 473.0
 offset_bottom = 64.0
-label_settings = SubResource("LabelSettings_8kkf7")
+label_settings = ExtResource("4_u57fi")
 
 [node name="Interact" type="TextureButton" parent="RPGPlayer/InteractionMenu/TextureRect"]
 visible = false
@@ -192,6 +194,7 @@ offset_right = 360.0
 offset_bottom = 114.0
 texture_normal = SubResource("GradientTexture1D_fkejb")
 texture_hover = SubResource("GradientTexture1D_yqolr")
+stretch_mode = 0
 
 [node name="IT" type="Label" parent="RPGPlayer/InteractionMenu/TextureRect/Interact"]
 layout_mode = 0
@@ -200,7 +203,7 @@ offset_top = 7.0
 offset_right = 79.0
 offset_bottom = 33.0
 text = "> Talk"
-label_settings = SubResource("LabelSettings_8kkf7")
+label_settings = ExtResource("4_u57fi")
 
 [node name="Leave" type="TextureButton" parent="RPGPlayer/InteractionMenu/TextureRect"]
 visible = false
@@ -211,6 +214,7 @@ offset_right = 360.0
 offset_bottom = 173.0
 texture_normal = SubResource("GradientTexture1D_fkejb")
 texture_hover = SubResource("GradientTexture1D_ncxl2")
+stretch_mode = 0
 
 [node name="LeaveText" type="Label" parent="RPGPlayer/InteractionMenu/TextureRect/Leave"]
 layout_mode = 0
@@ -219,7 +223,7 @@ offset_top = 10.0
 offset_right = 81.0
 offset_bottom = 36.0
 text = "> Leave"
-label_settings = SubResource("LabelSettings_8kkf7")
+label_settings = ExtResource("4_u57fi")
 
 [node name="TextAnimate" type="AnimationPlayer" parent="RPGPlayer/InteractionMenu"]
 libraries = {
@@ -227,15 +231,20 @@ libraries = {
 }
 
 [node name="Dialogue" parent="RPGPlayer" instance=ExtResource("5_rb5n7")]
+visible = false
 
 [node name="NPC" parent="." instance=ExtResource("2_oj423")]
-<<<<<<< HEAD
 position = Vector2(724, 587)
+
+[node name="Sprite2D" type="Sprite2D" parent="NPC"]
+position = Vector2(-7.15256e-06, -12.5)
+scale = Vector2(0.124163, 55)
+texture = SubResource("GradientTexture1D_n60ls")
 
 [node name="Door" parent="." instance=ExtResource("6_jps7q")]
 position = Vector2(705, -86)
 
-[node name="GameManager" parent="." instance=ExtResource("8_63dn5")]
+[node name="GameManager" type="Node2D" parent="."]
 
 [node name="AllDialogues" type="Label" parent="GameManager"]
 offset_right = 40.0
@@ -249,6 +258,3 @@ script = ExtResource("9_5y5d0")
 [connection signal="notnear" from="NPC" to="RPGPlayer" method="_on_npc_notnear"]
 [connection signal="neardoor" from="Door" to="RPGPlayer" method="_on_door_neardoor"]
 [connection signal="notneardoor" from="Door" to="RPGPlayer" method="_on_door_notneardoor"]
-=======
-position = Vector2(905, 206)
->>>>>>> ee8e22cbb515147b5bdd351b3f3a9de63a110b4e

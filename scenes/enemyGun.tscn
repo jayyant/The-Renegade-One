@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://g5vgi65vk854"]
+
+[ext_resource type="Script" path="res://scripts/enemy_gun.gd" id="1_ggyda"]
+[ext_resource type="Texture2D" uid="uid://dx6a3ooxx0qlc" path="res://assets/Guns_Level_1/StG44.png" id="2_ah62u"]
+
+[node name="enemyGun" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_ggyda")
+
+[node name="StG44" type="Sprite2D" parent="."]
+position = Vector2(16, 0)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_ah62u")
+
+[node name="Position" type="Node2D" parent="."]
+position = Vector2(31, 0)
+rotation = 0.00615624
+
+[node name="Burst" type="Timer" parent="."]

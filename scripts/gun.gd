@@ -1,38 +1,45 @@
-extends CharacterBody2D
+extends Node2D
 
+@onready var player: CharacterBody2D = $".."
 @onready var shootPos: Node2D = $Position
 @onready var camera: Camera2D = %Camera2D
-var bulletPath=preload("res://scenes/Bullet.tscn")
-var fireRateInterval:float=0.1
-var canFire:bool=true
+@onready var enemy: CharacterBody2D = $"../../Enemy"
+var bulletPath = preload("res://scenes/Bullet.tscn")
 
-func _ready() -> void:
-	pass
+var fireRateInterval: float = 0.2
+var canFire: bool = true
+var despawnTime = 1
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
+	scale.y = -1 if cos(rotation) < 0 else 1
+
 	if Input.is_action_pressed("shoot") and canFire:
 		fire()
 
 func fire():
-	canFire=false
-	get_tree().create_timer(fireRateInterval).timeout.connect(_on_timer_timeout)
-	var bullet=bulletPath.instantiate()
-	bullet.direction=rotation
-	bullet.pos=shootPos.global_position
-	bullet.rot=global_rotation
-	get_parent().add_child(bullet)
-	despawn(bullet)
+	canFire = false
 	
-func despawn(bullet):
-	var camRect=camera.get_viewport_rect()
-	print(camRect)
-	camRect = Rect2(camera.global_transform.origin + camRect.position, camRect.size)
-	print(camRect)
-	print(bullet.global_position)
-	if camRect.has_point(bullet.global_position):
-		bullet.queue_free()
-		print("E")
+	if player.is_on_floor():
+		player.velocity.x += -500 * cos(rotation)
+	else:
+		player.velocity.y=-400 * sin(rotation)
+
+	var bullet = bulletPath.instantiate()
+	bullet.global_position = shootPos.global_position  
+	bullet.rotation = rotation
+	bullet.direction = rotation
+	if not enemy.isded:
+		bullet.bullethitEnemy.connect(enemy._on_bullet_hit)
+
+	get_parent().get_parent().add_child(bullet)
+
+	get_tree().create_timer(despawnTime).timeout.connect(func():
+		if is_instance_valid(bullet):
+			bullet.queue_free()
+	)
+
+	get_tree().create_timer(fireRateInterval).timeout.connect(_on_timer_timeout)
 
 func _on_timer_timeout():
-	canFire=true
+	canFire = true

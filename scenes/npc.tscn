@@ -1,31 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbss8fhgautco"]
+[gd_scene load_steps=4 format=3 uid="uid://bbss8fhgautco"]
 
 [ext_resource type="Script" path="res://scripts/npc.gd" id="1_3g1le"]
 
-[sub_resource type="Gradient" id="Gradient_do33p"]
-interpolation_mode = 1
-colors = PackedColorArray(0.314316, 0.314316, 0.314316, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_aeek5"]
-gradient = SubResource("Gradient_do33p")
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_786k6"]
 size = Vector2(58, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ge4aj"]
+size = Vector2(45, 78)
 
 [node name="NPC" type="Area2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_3g1le")
 metadata/Name = "John Melon"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.00001, -14.25)
-scale = Vector2(0.109375, 29.5)
-texture = SubResource("GradientTexture1D_aeek5")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -13)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_786k6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_ge4aj")
+debug_color = Color(0.915311, 8.25924e-05, 0.713229, 0.42)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
