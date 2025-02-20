@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 [gd_scene load_steps=11 format=3 uid="uid://cql4gpmc6vl4s"]
 
 [ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_x8khu"]
 [ext_resource type="Texture2D" uid="uid://bdyt4oujqlxdj" path="res://assets/ui/Fnew.png" id="2_qu4xa"]
 [ext_resource type="Texture2D" uid="uid://dhanqil8v67xf" path="res://assets/player/rpgwalk.png" id="3_jc2ir"]
+=======
+[gd_scene load_steps=5 format=3 uid="uid://cql4gpmc6vl4s"]
+
+[ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_x8khu"]
+>>>>>>> bdeb3de98154b32f805aea209b8d4454e91248ea
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wwdob"]
 atlas = ExtResource("3_jc2ir")
@@ -68,6 +74,7 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, -54.4375)
 shape = SubResource("RectangleShape2D_cycqk")
+<<<<<<< HEAD
 
 [node name="InteractionPrompt" type="Control" parent="."]
 layout_mode = 3
@@ -80,3 +87,5 @@ offset_right = 155.0
 offset_bottom = -103.0
 texture = ExtResource("2_qu4xa")
 expand_mode = 1
+=======
+>>>>>>> bdeb3de98154b32f805aea209b8d4454e91248ea

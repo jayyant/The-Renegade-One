@@ -1,22 +1,23 @@
-[gd_scene load_steps=22 format=3 uid="uid://bp780ocnjruxn"]
+[gd_scene load_steps=5 format=3 uid="uid://bp780ocnjruxn"]
 
 [ext_resource type="PackedScene" uid="uid://cql4gpmc6vl4s" path="res://scenes/rpg_player.tscn" id="1_ffq22"]
-[ext_resource type="Texture2D" uid="uid://te30kbgb6gmd" path="res://assets/ui/dialogbox.png" id="2_krlu5"]
 [ext_resource type="PackedScene" uid="uid://bbss8fhgautco" path="res://scenes/npc.tscn" id="2_oj423"]
+<<<<<<< HEAD
 [ext_resource type="Script" path="res://scripts/interaction_menu.gd" id="2_u6rp3"]
 [ext_resource type="LabelSettings" uid="uid://cn474ub5lko2k" path="res://scripts/text.tres" id="4_u57fi"]
 [ext_resource type="PackedScene" uid="uid://cqla3bddjl8hs" path="res://scenes/dialogue.tscn" id="5_rb5n7"]
 [ext_resource type="PackedScene" uid="uid://div2qss7k4i5j" path="res://scenes/door.tscn" id="6_jps7q"]
 [ext_resource type="Script" path="res://scripts/all_dialogues.gd" id="9_5y5d0"]
+=======
+>>>>>>> bdeb3de98154b32f805aea209b8d4454e91248ea
 
 [sub_resource type="Gradient" id="Gradient_onmpi"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_qje30"]
 gradient = SubResource("Gradient_onmpi")
 
+<<<<<<< HEAD
 [sub_resource type="Gradient" id="Gradient_p5hu8"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0)
@@ -131,35 +132,17 @@ colors = PackedColorArray(0.470076, 0.470076, 0.470076, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_n60ls"]
 gradient = SubResource("Gradient_b440w")
 
+=======
+>>>>>>> bdeb3de98154b32f805aea209b8d4454e91248ea
 [node name="battle" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -464.0
-offset_top = -343.0
-offset_right = 1573.0
-offset_bottom = 871.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("GradientTexture1D_qje30")
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 1493.0
-offset_top = -5598.0
-offset_right = 3530.0
-offset_bottom = -4384.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 1156.0
+offset_bottom = 659.0
 texture = SubResource("GradientTexture1D_qje30")
 
 [node name="RPGPlayer" parent="." instance=ExtResource("1_ffq22")]
+<<<<<<< HEAD
 unique_name_in_owner = true
 z_index = 5
 position = Vector2(603, 580)
@@ -258,3 +241,9 @@ script = ExtResource("9_5y5d0")
 [connection signal="notnear" from="NPC" to="RPGPlayer" method="_on_npc_notnear"]
 [connection signal="neardoor" from="Door" to="RPGPlayer" method="_on_door_neardoor"]
 [connection signal="notneardoor" from="Door" to="RPGPlayer" method="_on_door_notneardoor"]
+=======
+position = Vector2(425, 425)
+
+[node name="NPC" parent="." instance=ExtResource("2_oj423")]
+position = Vector2(905, 206)
+>>>>>>> bdeb3de98154b32f805aea209b8d4454e91248ea

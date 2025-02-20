@@ -9,9 +9,7 @@ size = Vector2(58, 52)
 size = Vector2(45, 78)
 
 [node name="NPC" type="Area2D"]
-scale = Vector2(2, 2)
 script = ExtResource("1_3g1le")
-metadata/Name = "John Melon"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -13)
