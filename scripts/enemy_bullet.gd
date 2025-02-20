@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 
 	if collision:
 		var collider = collision.get_collider()
-		if collider.is_in_group("shootable"):
+		if collider.is_in_group("player"):
 			bullethitEnemy.emit()
 			queue_free()
 		elif collider.is_in_group("tilemap"):  # Add your TileMap group here

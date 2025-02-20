@@ -5,8 +5,7 @@ extends CharacterBody2D
 @onready var bufferTimer: Timer = $bufferTimer
 @onready var coyoteTimer: Timer = $coyoteTimer
 @onready var camera: Camera2D = $Camera2D
-@onready var node_2d: Node2D = $Node2D
-@onready var zoomTween:Tween = get_tree().create_tween()
+@onready var animSpr: AnimatedSprite2D = $AnimatedSprite2D
 
 const TARGETSPEED = 600.0
 const JUMP_VELOCITY = 800.0
@@ -49,6 +48,7 @@ func move():
 	var direction = Input.get_axis("leftMove", "rightMove")
 	if is_on_floor():
 		velocity.x = move_toward(velocity.x, direction * TARGETSPEED if direction else 0, 60)
+		
 	else:
 		velocity.x = move_toward(velocity.x, direction * TARGETSPEED if direction else 0, 20)
 

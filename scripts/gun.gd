@@ -9,13 +9,17 @@ var bulletPath = preload("res://scenes/Bullet.tscn")
 var fireRateInterval: float = 0.2
 var canFire: bool = true
 var despawnTime = 1
+var gunScale=scale.y
 
 func _physics_process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
-	scale.y = -1 if cos(rotation) < 0 else 1
+	var mouse_direction = get_global_mouse_position().x - global_position.x
+	player.get_node("AnimatedSprite2D").flip_h = mouse_direction < 0
+	scale.y = -gunScale if cos(rotation) < 0 else gunScale
 
 	if Input.is_action_pressed("shoot") and canFire:
 		fire()
+
 
 func fire():
 	canFire = false
