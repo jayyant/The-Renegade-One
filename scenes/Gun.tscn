@@ -1,19 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2ixjdt33yvhf"]
+[gd_scene load_steps=3 format=3 uid="uid://c2ixjdt33yvhf"]
 
-[ext_resource type="Texture2D" uid="uid://0j82tmm5l0gh" path="res://icon.svg" id="1_14r1u"]
 [ext_resource type="Script" path="res://scripts/gun.gd" id="1_hiq1k"]
+[ext_resource type="Texture2D" uid="uid://dx6a3ooxx0qlc" path="res://assets/Guns_Level_1/StG44.png" id="3_g7wl7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypkk1"]
-
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Gun" type="Node2D"]
 script = ExtResource("1_hiq1k")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_14r1u")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(6.30248, 6.30248)
-shape = SubResource("RectangleShape2D_ypkk1")
+[node name="StG44" type="Sprite2D" parent="."]
+position = Vector2(16, 0)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_g7wl7")
 
 [node name="Position" type="Node2D" parent="."]
-position = Vector2(68, 0)
+position = Vector2(31, 0)
+rotation = 0.00615624
+
+[node name="Burst" type="Timer" parent="."]

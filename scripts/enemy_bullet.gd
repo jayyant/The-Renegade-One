@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
-signal bullethitEnemy  # Define the signal here!
+signal bullethitEnemy(collider)
 
 var speed: float = 1000.0
 var direction: float = 0.0  
 
 func _physics_process(delta: float) -> void:
+	velocity = Vector2(speed, 0).rotated(direction)
+
 	var collision = move_and_collide(Vector2(speed, 0).rotated(direction) * delta)
 
 	if collision:

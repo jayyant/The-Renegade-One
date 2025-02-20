@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://0j82tmm5l0gh" path="res://icon.svg" id="2_1d6au"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wk61r"]
-size = Vector2(24, 39)
+size = Vector2(20, 39)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player", "shootable"]]
+collision_layer = 9
 script = ExtResource("1_rg7sd")
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -15,9 +16,10 @@ script = ExtResource("1_rg7sd")
 position = Vector2(0, -20)
 scale = Vector2(0.164329, 0.302313)
 texture = ExtResource("2_1d6au")
+offset = Vector2(0, 50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -19.5)
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_wk61r")
 
 [node name="bufferTimer" type="Timer" parent="."]
@@ -27,18 +29,6 @@ one_shot = true
 [node name="coyoteTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
-
-[node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2(0, -38)
-target_position = Vector2(14, 0)
-
-[node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(0, -38)
-target_position = Vector2(-14, 0)
-
-[node name="staminaTimer" type="Timer" parent="."]
-wait_time = 0.008
-autostart = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0

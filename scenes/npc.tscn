@@ -13,9 +13,7 @@ gradient = SubResource("Gradient_do33p")
 size = Vector2(58, 52)
 
 [node name="NPC" type="Area2D"]
-scale = Vector2(2, 2)
 script = ExtResource("1_3g1le")
-metadata/Name = "John Melon"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.00001, -14.25)
