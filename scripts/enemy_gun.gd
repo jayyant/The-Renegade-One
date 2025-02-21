@@ -18,7 +18,6 @@ func _process(_delta: float) -> void:
 
 func gunOrient():
 	look_at(player.global_position)  # Ensure global position
-
 	# Flip gun if facing left
 	var is_facing_left = player.global_position.x < global_position.x
 	scale.y = -gunScale if is_facing_left else gunScale

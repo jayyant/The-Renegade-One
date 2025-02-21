@@ -1,9 +1,26 @@
-[gd_scene load_steps=16 format=3 uid="uid://unisemgbgjcp"]
+[gd_scene load_steps=21 format=3 uid="uid://unisemgbgjcp"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_xbhur"]
 [ext_resource type="Texture2D" uid="uid://dmaivq2vd0p3y" path="res://assets/Soldier_1/Idle.png" id="2_po5fk"]
+[ext_resource type="Texture2D" uid="uid://c2kpn5kjmlxg8" path="res://assets/Soldier_1/Dead.png" id="2_s0hy3"]
 [ext_resource type="Texture2D" uid="uid://bj5buva6c6t0b" path="res://assets/Soldier_1/Run.png" id="2_xwys6"]
 [ext_resource type="PackedScene" uid="uid://g5vgi65vk854" path="res://scenes/enemyGun.tscn" id="3_yyjvm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oexe6"]
+atlas = ExtResource("2_s0hy3")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4ugj"]
+atlas = ExtResource("2_s0hy3")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1trit"]
+atlas = ExtResource("2_s0hy3")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fke4u"]
+atlas = ExtResource("2_s0hy3")
+region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gvmt7"]
 atlas = ExtResource("2_po5fk")
@@ -45,11 +62,28 @@ region = Rect2(896, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_oexe6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4ugj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1trit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fke4u")
+}],
+"loop": false,
+"name": &"death",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gvmt7")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -96,7 +130,7 @@ metadata/hp = 0
 position = Vector2(2.66666, -66.333)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_iw87b")
-animation = &"idle"
+animation = &"death"
 
 [node name="RayCast2D" type="RayCast2D" parent="." groups=["shootable"]]
 position = Vector2(-2.66667, -39.3334)

@@ -210,10 +210,10 @@ position = Vector2(1.99998, -0.666667)
 [node name="ShoulderPositionRun" type="Marker2D" parent="Player"]
 position = Vector2(6.10352e-05, -0.666672)
 
-[node name="Enemy" parent="." instance=ExtResource("8_uf1ho")]
-position = Vector2(1122, -232)
-scale = Vector2(0.537061, 0.537061)
-
 [node name="Enemy2" parent="." instance=ExtResource("8_uf1ho")]
 position = Vector2(944, -359)
+scale = Vector2(0.45, 0.45)
+
+[node name="Enemy" parent="." instance=ExtResource("8_uf1ho")]
+position = Vector2(1866, -359)
 scale = Vector2(0.45, 0.45)

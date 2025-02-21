@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		var collider = collision.get_collider()
 		if collider and collider.is_in_group("shootable"):
-			bullethitEnemy.emit(collider)  # Emit the enemy instance
+			bullethitEnemy.emit(collider)
 			queue_free()
 		elif collider and collider.is_in_group("tilemap"):  
 			queue_free()

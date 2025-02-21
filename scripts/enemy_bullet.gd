@@ -18,3 +18,6 @@ func _physics_process(delta: float) -> void:
 			queue_free()
 		elif collider.is_in_group("tilemap"):  # Add your TileMap group here
 			queue_free()
+		elif collider.is_in_group("shootable"):
+			bullethitEnemy.emit()
+			queue_free()
