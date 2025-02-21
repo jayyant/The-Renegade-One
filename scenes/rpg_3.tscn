@@ -1,15 +1,15 @@
-[gd_scene load_steps=26 format=3 uid="uid://bp780ocnjruxn"]
+[gd_scene load_steps=26 format=3 uid="uid://clrkj7ucfnp7g"]
 
-[ext_resource type="PackedScene" uid="uid://cql4gpmc6vl4s" path="res://scenes/rpg_player.tscn" id="1_ffq22"]
-[ext_resource type="Script" path="res://scripts/interaction_menu.gd" id="2_3engl"]
-[ext_resource type="PackedScene" path="res://scenes/npc.tscn" id="2_oj423"]
-[ext_resource type="Texture2D" uid="uid://te30kbgb6gmd" path="res://assets/ui/dialogbox.png" id="3_heyob"]
-[ext_resource type="PackedScene" path="res://scenes/door.tscn" id="3_tkcbt"]
-[ext_resource type="PackedScene" path="res://scenes/dialogue.tscn" id="3_wa1qr"]
-[ext_resource type="LabelSettings" uid="uid://cn474ub5lko2k" path="res://scripts/text.tres" id="4_3b1e1"]
-[ext_resource type="PackedScene" uid="uid://b4u3u111rf4nq" path="res://scenes/game_manager.tscn" id="8_f85ou"]
-[ext_resource type="Script" path="res://scripts/all_dialogues.gd" id="9_bwrnr"]
-[ext_resource type="PackedScene" uid="uid://cl0hij2812c1w" path="res://scenes/exit.tscn" id="10_2q226"]
+[ext_resource type="PackedScene" uid="uid://cql4gpmc6vl4s" path="res://scenes/rpg_player.tscn" id="1_8d7kt"]
+[ext_resource type="Script" path="res://scripts/interaction_menu.gd" id="2_e7751"]
+[ext_resource type="Texture2D" uid="uid://te30kbgb6gmd" path="res://assets/ui/dialogbox.png" id="3_fl18n"]
+[ext_resource type="LabelSettings" uid="uid://cn474ub5lko2k" path="res://scripts/text.tres" id="4_eheiv"]
+[ext_resource type="PackedScene" path="res://scenes/dialogue.tscn" id="5_vewyv"]
+[ext_resource type="PackedScene" path="res://scenes/npc.tscn" id="6_wd0s7"]
+[ext_resource type="PackedScene" path="res://scenes/door.tscn" id="7_8bftt"]
+[ext_resource type="PackedScene" uid="uid://b4u3u111rf4nq" path="res://scenes/game_manager.tscn" id="8_gkvlt"]
+[ext_resource type="Script" path="res://scripts/all_dialogues.gd" id="9_opfw7"]
+[ext_resource type="PackedScene" uid="uid://cl0hij2812c1w" path="res://scenes/exit.tscn" id="10_lunit"]
 
 [sub_resource type="Gradient" id="Gradient_onmpi"]
 interpolation_mode = 1
@@ -142,13 +142,13 @@ offset_right = 1156.0
 offset_bottom = 659.0
 texture = SubResource("GradientTexture1D_qje30")
 
-[node name="RPGPlayer" parent="." groups=["player"] instance=ExtResource("1_ffq22")]
+[node name="RPGPlayer" parent="." groups=["player"] instance=ExtResource("1_8d7kt")]
 unique_name_in_owner = true
 position = Vector2(571, 524)
 
 [node name="InteractionMenu" type="CanvasLayer" parent="RPGPlayer"]
 visible = false
-script = ExtResource("2_3engl")
+script = ExtResource("2_e7751")
 
 [node name="TextureRect" type="TextureRect" parent="RPGPlayer/InteractionMenu"]
 anchors_preset = 7
@@ -161,7 +161,7 @@ offset_top = -236.0
 offset_right = 302.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("3_heyob")
+texture = ExtResource("3_fl18n")
 
 [node name="Text" type="Label" parent="RPGPlayer/InteractionMenu/TextureRect"]
 layout_mode = 0
@@ -170,7 +170,7 @@ offset_top = 21.0
 offset_right = 574.0
 offset_bottom = 63.0
 text = "Hello there, general kenobi"
-label_settings = ExtResource("4_3b1e1")
+label_settings = ExtResource("4_eheiv")
 
 [node name="Interact" type="TextureButton" parent="RPGPlayer/InteractionMenu/TextureRect"]
 visible = false
@@ -191,7 +191,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "> Interact"
-label_settings = ExtResource("4_3b1e1")
+label_settings = ExtResource("4_eheiv")
 
 [node name="Leave" type="TextureButton" parent="RPGPlayer/InteractionMenu/TextureRect"]
 visible = false
@@ -208,20 +208,20 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "> Leave"
-label_settings = ExtResource("4_3b1e1")
+label_settings = ExtResource("4_eheiv")
 
 [node name="TextAnimate" type="AnimationPlayer" parent="RPGPlayer/InteractionMenu"]
 libraries = {
 "": SubResource("AnimationLibrary_fd7gs")
 }
 
-[node name="Dialogue" parent="RPGPlayer" instance=ExtResource("3_wa1qr")]
+[node name="Dialogue" parent="RPGPlayer" instance=ExtResource("5_vewyv")]
 unique_name_in_owner = true
 visible = false
 
 [node name="Camera2D" type="Camera2D" parent="RPGPlayer"]
 
-[node name="NPC" parent="." instance=ExtResource("2_oj423")]
+[node name="NPC" parent="." instance=ExtResource("6_wd0s7")]
 position = Vector2(737, 470)
 metadata/Name = "John Melon"
 
@@ -230,18 +230,18 @@ position = Vector2(-3.43323e-05, -12)
 scale = Vector2(0.171875, 78)
 texture = SubResource("GradientTexture1D_isura")
 
-[node name="Door" parent="." instance=ExtResource("3_tkcbt")]
+[node name="Door" parent="." instance=ExtResource("7_8bftt")]
 position = Vector2(572, 71)
 
-[node name="GameManager" parent="." instance=ExtResource("8_f85ou")]
+[node name="GameManager" parent="." instance=ExtResource("8_gkvlt")]
 unique_name_in_owner = true
 
 [node name="AllDialogues" type="Label" parent="GameManager"]
 offset_right = 40.0
 offset_bottom = 23.0
-script = ExtResource("9_bwrnr")
+script = ExtResource("9_opfw7")
 
-[node name="Exit" parent="." instance=ExtResource("10_2q226")]
+[node name="Exit" parent="." instance=ExtResource("10_lunit")]
 position = Vector2(1121, 342)
 
 [connection signal="pressed" from="RPGPlayer/InteractionMenu/TextureRect/Interact" to="RPGPlayer/InteractionMenu" method="_on_interact_pressed"]

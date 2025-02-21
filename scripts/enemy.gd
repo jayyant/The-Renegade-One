@@ -8,6 +8,7 @@ const TOTHP = 100
 @onready var player: CharacterBody2D = %Player
 @onready var bodyColl: CollisionShape2D = $BodyColl
 @onready var enemy_gun: Node2D = $enemyGun
+@onready var game_manager: Node2D = %GameManager
 
 var last_direction = 1  # 1 = Right, -1 = Left
 
@@ -61,4 +62,5 @@ func die():
 	enemy_gun.visible=false
 	await animSpr.animation_finished  
 	velocity = Vector2.ZERO  
-	bodyColl.set_deferred("disabled", true) 
+	bodyColl.set_deferred("disabled", true)
+	game_manager.enemyKilled() 

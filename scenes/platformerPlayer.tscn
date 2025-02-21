@@ -1,8 +1,8 @@
 [gd_scene load_steps=23 format=3 uid="uid://c76qop7v8wc65"]
 
 [ext_resource type="Script" path="res://scripts/platformerPlayer.gd" id="1_rg7sd"]
-[ext_resource type="Texture2D" uid="uid://v2mfe6i0027n" path="res://assets/Player/Idle.png" id="2_pyho0"]
-[ext_resource type="Texture2D" uid="uid://bbdhrcjj3lu8m" path="res://assets/Player/RunBody.png" id="3_mdk8r"]
+[ext_resource type="Texture2D" uid="uid://v2mfe6i0027n" path="res://assets/player/Idle.png" id="2_pyho0"]
+[ext_resource type="Texture2D" uid="uid://bbdhrcjj3lu8m" path="res://assets/player/RunBody.png" id="3_mdk8r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2v4tl"]
 atlas = ExtResource("2_pyho0")
