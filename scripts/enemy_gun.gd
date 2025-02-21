@@ -7,6 +7,9 @@ extends Node2D
 @onready var player: CharacterBody2D = $"../../Player"
 @onready var enemy: CharacterBody2D = $".."
 @onready var rc2: RayCast2D = enemy.find_child("RayCast2D")
+@onready var shoulder_position_left: Marker2D = enemy.get_node("ShoulderPositionLeft")
+@onready var shoulder_position_right: Marker2D = enemy.get_node("ShoulderPositionRight")
+@onready var shoulder_position_idle: Marker2D = enemy.get_node("ShoulderPositionIdle")
 
 var bulletPath = preload("res://scenes/enemyBullet.tscn")
 var canFire: bool = true
@@ -25,6 +28,14 @@ func gunOrient():
 	# Fix RayCast2D rotation
 	rc2.rotation = 0  # Reset rotation
 	rc2.target_position = (player.global_position - rc2.global_position).normalized() * 100  # Adjust direction
+
+	#Gun Shoulder Offset
+	if enemy.velocity.x==0:
+		position = shoulder_position_idle.position
+	elif is_facing_left:
+		position = shoulder_position_right.position
+	else:
+		position = shoulder_position_left.position
 
 	# Check if can fire
 	if canFire and rc2.is_colliding():

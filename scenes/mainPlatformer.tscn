@@ -210,10 +210,28 @@ position = Vector2(1.99998, -0.666667)
 [node name="ShoulderPositionRun" type="Marker2D" parent="Player"]
 position = Vector2(6.10352e-05, -0.666672)
 
-[node name="Enemy2" parent="." instance=ExtResource("8_uf1ho")]
-position = Vector2(944, -359)
+[node name="Enemy" parent="." instance=ExtResource("8_uf1ho")]
+position = Vector2(2362, -359)
 scale = Vector2(0.45, 0.45)
 
-[node name="Enemy" parent="." instance=ExtResource("8_uf1ho")]
-position = Vector2(1866, -359)
+[node name="ShoulderPositionLeft" type="Marker2D" parent="Enemy"]
+position = Vector2(2.88865, -29.5556)
+
+[node name="ShoulderPositionRight" type="Marker2D" parent="Enemy"]
+position = Vector2(10.8887, -29.5556)
+
+[node name="ShoulderPositionIdle" type="Marker2D" parent="Enemy"]
+position = Vector2(22.2217, -29.5556)
+
+[node name="Enemy2" parent="." instance=ExtResource("8_uf1ho")]
+position = Vector2(2154, -359)
 scale = Vector2(0.45, 0.45)
+
+[node name="ShoulderPositionLeft" type="Marker2D" parent="Enemy2"]
+position = Vector2(2.88865, -29.5556)
+
+[node name="ShoulderPositionRight" type="Marker2D" parent="Enemy2"]
+position = Vector2(10.8887, -29.5556)
+
+[node name="ShoulderPositionIdle" type="Marker2D" parent="Enemy2"]
+position = Vector2(22.2217, -29.5556)

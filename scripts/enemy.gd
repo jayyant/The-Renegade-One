@@ -38,7 +38,7 @@ func movementAI():
 	# Play movement animation
 	if abs(direction.x) > 0.1:
 		animSpr.play("run")
-	else:
+	elif velocity.x==0:
 		animSpr.play("idle")
 
 	velocity.x = direction.x * SPEED

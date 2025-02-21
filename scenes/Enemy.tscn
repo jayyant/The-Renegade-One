@@ -127,22 +127,22 @@ script = ExtResource("1_xbhur")
 metadata/hp = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2.66666, -66.333)
+position = Vector2(-0.666664, -66.333)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_iw87b")
-animation = &"death"
+animation = &"idle"
 
 [node name="RayCast2D" type="RayCast2D" parent="." groups=["shootable"]]
-position = Vector2(-2.66667, -39.3334)
+position = Vector2(-6, -39.3334)
 scale = Vector2(10, 8)
 target_position = Vector2(90, 0)
 collision_mask = 9
 hit_from_inside = true
 
 [node name="enemyGun" parent="." instance=ExtResource("3_yyjvm")]
-position = Vector2(-13, -37.6667)
+position = Vector2(-16.3333, -37.6667)
 scale = Vector2(1.46216, 1.46216)
 
 [node name="BodyColl" type="CollisionShape2D" parent="."]
-position = Vector2(2.09808e-05, 1.52588e-05)
+position = Vector2(-3.33331, 1.52588e-05)
 shape = SubResource("CapsuleShape2D_qb64v")
