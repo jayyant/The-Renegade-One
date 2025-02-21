@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhanqil8v67xf"
-path="res://.godot/imported/rpgwalk.png-3415097eeed9264dfe2f8dadc5981fc8.ctex"
+uid="uid://dxeqgiibmeok7"
+path="res://.godot/imported/IdleReference.png-eb50d3591996858aa6a0bf512b20a0a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Player/rpgwalk.png"
-dest_files=["res://.godot/imported/rpgwalk.png-3415097eeed9264dfe2f8dadc5981fc8.ctex"]
+source_file="res://assets/Soldier_1/IdleReference.png"
+dest_files=["res://.godot/imported/IdleReference.png-eb50d3591996858aa6a0bf512b20a0a7.ctex"]
 
 [params]
 
