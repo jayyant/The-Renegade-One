@@ -5,10 +5,9 @@ extends CharacterBody2D
 @onready var bufferTimer: Timer = $bufferTimer
 @onready var coyoteTimer: Timer = $coyoteTimer
 @onready var camera: Camera2D = $Camera2D
-@onready var node_2d: Node2D = $Node2D
-@onready var zoomTween:Tween = get_tree().create_tween()
+@onready var animSpr: AnimatedSprite2D = $AnimatedSprite2D
 
-const TARGETSPEED = 600.0
+const TARGETSPEED = 350.0
 const JUMP_VELOCITY = 800.0
 const SPEED = 200.0
 const GRAVITY = 980
@@ -23,7 +22,7 @@ func _ready() -> void:
 	bufferTimer.timeout.connect(jumpBufferTimeout)
 	coyoteTimer.timeout.connect(coyoteTimeout)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	apply_gravity()
 	jump()
@@ -46,11 +45,20 @@ func jump():
 			bufferTimer.start()
 
 func move():
-	var direction = Input.get_axis("moveLeft", "moveRight")
-	if is_on_floor():
-		velocity.x = move_toward(velocity.x, direction * TARGETSPEED if direction else 0, 60)
+	var direction = Input.get_axis("leftMove", "rightMove")
+	var is_gun_facing_left = get_node("Node2D/Gun").scale.y < 0
+	if direction:
+		if (direction < 0 and not is_gun_facing_left) or (direction > 0 and is_gun_facing_left):
+			animSpr.play("run", -1, -1)
+		else:
+			animSpr.play("run")
 	else:
-		velocity.x = move_toward(velocity.x, direction * TARGETSPEED if direction else 0, 20)
+		animSpr.play("idle")
+
+	if is_on_floor():
+		velocity.x = move_toward(velocity.x, float(direction * TARGETSPEED) if direction else 0.0, 60)
+	else:
+		velocity.x = move_toward(velocity.x, float(direction * TARGETSPEED) if direction else 0.0, 20)
 
 func jumpBufferTimeout():
 	jumpBuffer = false

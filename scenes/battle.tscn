@@ -1,6 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://bp780ocnjruxn"]
 
 [ext_resource type="PackedScene" uid="uid://cql4gpmc6vl4s" path="res://scenes/rpg_player.tscn" id="1_ffq22"]
+<<<<<<< HEAD
 [ext_resource type="Script" path="res://scripts/interaction_menu.gd" id="2_3engl"]
 [ext_resource type="PackedScene" path="res://scenes/npc.tscn" id="2_oj423"]
 [ext_resource type="Texture2D" uid="uid://te30kbgb6gmd" path="res://assets/ui/dialogbox.png" id="3_heyob"]
@@ -9,6 +10,9 @@
 [ext_resource type="LabelSettings" uid="uid://cn474ub5lko2k" path="res://scripts/text.tres" id="4_3b1e1"]
 [ext_resource type="PackedScene" uid="uid://b4u3u111rf4nq" path="res://scenes/game_manager.tscn" id="8_f85ou"]
 [ext_resource type="Script" path="res://scripts/all_dialogues.gd" id="9_bwrnr"]
+=======
+[ext_resource type="PackedScene" uid="uid://bbss8fhgautco" path="res://scenes/npc.tscn" id="2_oj423"]
+>>>>>>> 70631db9ff756af5fc47e9955b290857c43c0c1e
 
 [sub_resource type="Gradient" id="Gradient_onmpi"]
 interpolation_mode = 1
@@ -16,6 +20,7 @@ interpolation_mode = 1
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_qje30"]
 gradient = SubResource("Gradient_onmpi")
 
+<<<<<<< HEAD
 [sub_resource type="Gradient" id="Gradient_h8vad"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.0980392, 0.0705882, 0.0705882, 1)
@@ -134,6 +139,8 @@ _data = {
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_isura"]
 gradient = SubResource("Gradient_5xiar")
 
+=======
+>>>>>>> 70631db9ff756af5fc47e9955b290857c43c0c1e
 [node name="battle" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -142,6 +149,7 @@ offset_bottom = 659.0
 texture = SubResource("GradientTexture1D_qje30")
 
 [node name="RPGPlayer" parent="." instance=ExtResource("1_ffq22")]
+<<<<<<< HEAD
 unique_name_in_owner = true
 position = Vector2(571, 524)
 
@@ -245,3 +253,9 @@ script = ExtResource("9_bwrnr")
 [connection signal="notnear" from="NPC" to="RPGPlayer" method="_on_npc_notnear"]
 [connection signal="neardoor" from="Door" to="RPGPlayer" method="_on_door_neardoor"]
 [connection signal="notneardoor" from="Door" to="RPGPlayer" method="_on_door_notneardoor"]
+=======
+position = Vector2(425, 425)
+
+[node name="NPC" parent="." instance=ExtResource("2_oj423")]
+position = Vector2(905, 206)
+>>>>>>> 70631db9ff756af5fc47e9955b290857c43c0c1e
