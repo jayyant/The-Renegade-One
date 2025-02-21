@@ -1,6 +1,6 @@
-extends CharacterBody2D
+extends CharacterBody2D 
 
-signal bullethitEnemy  # Define the signal here!
+signal bullethitEnemy(enemy)  # Signal now passes the enemy that got hit
 
 var speed: float = 1000.0
 var direction: float = 0.0  
@@ -10,8 +10,8 @@ func _physics_process(delta: float) -> void:
 
 	if collision:
 		var collider = collision.get_collider()
-		if collider.is_in_group("shootable"):
-			bullethitEnemy.emit()
+		if collider and collider.is_in_group("shootable"):
+			bullethitEnemy.emit(collider)  # Emit the enemy instance
 			queue_free()
-		elif collider.is_in_group("tilemap"):  # Add your TileMap group here
+		elif collider and collider.is_in_group("tilemap"):  
 			queue_free()

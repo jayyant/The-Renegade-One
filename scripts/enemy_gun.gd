@@ -12,7 +12,7 @@ var canFire: bool = true
 @onready var rc2: RayCast2D = enemy.find_child("RayCast2D")  # Cached RayCast2D
 
 func _process(_delta: float) -> void:
-	if not enemy.isded:
+	if not enemy.get_meta("isdead"):
 		gunOrient()
 
 func gunOrient():

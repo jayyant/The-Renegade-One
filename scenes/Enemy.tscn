@@ -1,28 +1,100 @@
-[gd_scene load_steps=4 format=3 uid="uid://unisemgbgjcp"]
+[gd_scene load_steps=14 format=3 uid="uid://unisemgbgjcp"]
 
-[ext_resource type="Texture2D" uid="uid://0j82tmm5l0gh" path="res://icon.svg" id="1_80nui"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_xbhur"]
+[ext_resource type="Texture2D" uid="uid://bj5buva6c6t0b" path="res://assets/Soldier_1/Run.png" id="2_xwys6"]
+[ext_resource type="PackedScene" uid="uid://g5vgi65vk854" path="res://scenes/enemyGun.tscn" id="3_yyjvm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yy1mr"]
-size = Vector2(17.7216, 34.7479)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp0pv"]
+atlas = ExtResource("2_xwys6")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mytj1"]
+atlas = ExtResource("2_xwys6")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gref4"]
+atlas = ExtResource("2_xwys6")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nc28j"]
+atlas = ExtResource("2_xwys6")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hn3j6"]
+atlas = ExtResource("2_xwys6")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy3va"]
+atlas = ExtResource("2_xwys6")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htx3x"]
+atlas = ExtResource("2_xwys6")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtims"]
+atlas = ExtResource("2_xwys6")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iw87b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp0pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mytj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gref4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nc28j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hn3j6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy3va")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htx3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtims")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qb64v"]
+radius = 16.6667
+height = 124.0
 
 [node name="Enemy" type="CharacterBody2D" groups=["shootable"]]
+scale = Vector2(3, 3)
 collision_layer = 9
 script = ExtResource("1_xbhur")
+metadata/hp = 0
 
-[node name="Body" type="Sprite2D" parent="."]
-position = Vector2(1, -66.3059)
-scale = Vector2(0.453125, 0.84853)
-texture = ExtResource("1_80nui")
-
-[node name="BodyColl" type="CollisionShape2D" parent="."]
-position = Vector2(0.99997, -66)
-scale = Vector2(3.04713, 3.1081)
-shape = SubResource("RectangleShape2D_yy1mr")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, -128.333)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_iw87b")
+frame_progress = 0.88251
 
 [node name="RayCast2D" type="RayCast2D" parent="." groups=["shootable"]]
-position = Vector2(0, -1)
-scale = Vector2(16.0739, -13.303)
+position = Vector2(1, -82.6667)
+scale = Vector2(6, 7.698)
 target_position = Vector2(-90.0217, -0.075171)
 collision_mask = 9
 hit_from_inside = true
+
+[node name="enemyGun" parent="." instance=ExtResource("3_yyjvm")]
+position = Vector2(11.6667, -102)
+scale = Vector2(1.46216, 1.46216)
+
+[node name="BodyColl" type="CollisionShape2D" parent="."]
+position = Vector2(0, -62)
+shape = SubResource("CapsuleShape2D_qb64v")
