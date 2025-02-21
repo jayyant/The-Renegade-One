@@ -8,14 +8,19 @@ signal talking
 @onready var npc: Area2D = $"../../NPC"
 @onready var door: Area2D = $"../../Door"
 @onready var rpg_player: CharacterBody2D = %RPGPlayer
-@onready var dialogue: CanvasLayer = $"../Dialogue"
+@onready var dialogue: CanvasLayer = %Dialogue
 
 @export var interactionType = ""
 
 func _ready() -> void:
-	npc.interacted.connect(textMagic)
-	door.interacted.connect(textMagic)
-	dialogue.hide()
+	if npc:
+		npc.interacted.connect(textMagic)
+	else:
+		print("npc not found")
+	if dialogue:
+		dialogue.hide()
+	else:
+		print("dialogue not found")
 
 
 func textMagic():
@@ -23,9 +28,6 @@ func textMagic():
 		"NPC":
 			text.text = "You have encountered " + npc.get_meta("Name") + "!"
 			it.text = "> Talk"
-		"Door":
-			text.text = "Enter this door?"
-			it.text = "> Yes"
 		_:
 			text.text = ""
 			it.text = "> Interact"
@@ -34,10 +36,6 @@ func textMagic():
 
 func _on_interact_pressed() -> void:
 	match interactionType:
-		"Door":
-			hide()
-			rpg_player.position = Vector2(1500, -5500)
-			rpg_player.set_physics_process(true)
 		"NPC":
 			hide()
 			dialogue.show()

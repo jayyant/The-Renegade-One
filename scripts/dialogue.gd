@@ -4,7 +4,7 @@ extends CanvasLayer
 
 @onready var interaction_menu: CanvasLayer = $"../InteractionMenu"
 @onready var label: Label = $TextureRect/Label
-@onready var all_dialogues = $"../../GameManager/AllDialogues"  # Ensure this is the correct path
+@onready var all_dialogues: Label = $"../../GameManager/AllDialogues" # Ensure this is the correct path
 @onready var choices: TextureRect = $Choices
 @onready var choice_1_text: Label = $Choices/Choice1/Choice1Text
 @onready var choice_2_text: Label = $Choices/Choice2/Choice2Text
@@ -15,6 +15,7 @@ extends CanvasLayer
 @onready var skip_button: TextureButton = $HBoxContainer/SkipButton
 @onready var next_button: TextureButton = $HBoxContainer/NextButton
 @onready var text_anim: AnimationPlayer = $TextAnim
+@onready var game_manager: Node2D = %GameManager
 
 var current_dialogue_key = ""
 var is_dialogue_active = false
@@ -117,6 +118,7 @@ func _on_choice_1_pressed() -> void:
 
 func _on_choice_2_pressed() -> void:
 	_on_choice_selected(2)
+	game_manager.printall()
 
 func _on_skip_button_pressed() -> void:
 	skip_button.hide()

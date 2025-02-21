@@ -2,7 +2,6 @@ extends Area2D
 
 signal neardoor
 signal notneardoor
-signal interacted
 
 var nearby = false
 @onready var interaction_menu: CanvasLayer = $"../RPGPlayer/InteractionMenu"
@@ -15,7 +14,6 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	interaction_menu.interactionType = "Door"
 	if body == rpg_player:
 		nearby = true
 		neardoor.emit()
@@ -24,9 +22,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 func interactionCore():
 	if nearby:
-		emit_signal("interacted")
-		interaction_menu.show()
-		rpg_player.set_physics_process(false)
+		rpg_player.position = Vector2(1500, -5500)
 
 
 func _on_body_exited(body: Node2D) -> void:

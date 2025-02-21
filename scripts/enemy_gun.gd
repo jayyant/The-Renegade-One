@@ -28,6 +28,7 @@ func gunOrient():
 			var result = space_state.intersect_ray(query)
 
 			if result and result.collider == collider:
+				print("Fire")
 				fire()
 
 func fire():

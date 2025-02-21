@@ -4,8 +4,10 @@ const SPEED = 150.0
 const GRAVITY = 980.0
 const TOTHP = 100
 
+signal killed
 var isded=false
 
+@onready var game_manager: Node2D = %GameManager
 @onready var player: CharacterBody2D = $"../Player"
 @onready var bodyColl: CollisionShape2D = $BodyColl
 var hp = TOTHP
@@ -28,4 +30,5 @@ func _on_bullet_hit():
 	hp -= 50
 	if hp <= 0:
 		print("Enemy Dead")
+		killed.emit()
 		isded=true

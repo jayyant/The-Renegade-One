@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d3lhy2ljbnish"]
+
+[ext_resource type="Script" path="res://scripts/stats.gd" id="1_tvw0b"]
+
+[resource]
+script = ExtResource("1_tvw0b")
+enemiesKilled = 0
+friendliesKilled = 0

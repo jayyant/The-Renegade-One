@@ -1,0 +1,150 @@
+[gd_scene load_steps=21 format=3 uid="uid://c80dlywdman71"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_iu014"]
+[ext_resource type="Texture2D" uid="uid://cgtcsetov6px7" path="res://assets/ui/gametitle.png" id="2_0j52o"]
+[ext_resource type="Texture2D" uid="uid://b78xpv2fe8m7v" path="res://assets/ui/bgtest.png" id="2_r8lvc"]
+[ext_resource type="Texture2D" uid="uid://5vx8fuo0ykej" path="res://assets/ui/playbutton.png" id="4_i2pq5"]
+[ext_resource type="Texture2D" uid="uid://djnjhln3rg4vn" path="res://assets/ui/playclick.png" id="5_ihwrv"]
+[ext_resource type="Texture2D" uid="uid://djlc5bhhxfrnj" path="res://assets/ui/playhover.png" id="6_bxss0"]
+[ext_resource type="Texture2D" uid="uid://rlo7r7mjbn2x" path="res://assets/ui/optionsbutton.png" id="7_2yrao"]
+[ext_resource type="Texture2D" uid="uid://ba8uxwawix634" path="res://assets/ui/optionshover.png" id="8_4fbjq"]
+[ext_resource type="Texture2D" uid="uid://djlm1ejnmbdfc" path="res://assets/ui/optionsclick.png" id="8_m4ta8"]
+[ext_resource type="Texture2D" uid="uid://dh3gkktelvng6" path="res://assets/ui/quitbutton.png" id="10_xbofx"]
+[ext_resource type="Texture2D" uid="uid://dddnbo5226r12" path="res://assets/ui/quithover.png" id="11_ibdvr"]
+[ext_resource type="Texture2D" uid="uid://bc6pylbnguu52" path="res://assets/ui/quitclick.png" id="11_t56ys"]
+
+[sub_resource type="Gradient" id="Gradient_6y2wv"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gp0hg"]
+gradient = SubResource("Gradient_6y2wv")
+
+[sub_resource type="Gradient" id="Gradient_dinx6"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g08oi"]
+gradient = SubResource("Gradient_dinx6")
+
+[sub_resource type="Gradient" id="Gradient_yj0dh"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fbog7"]
+gradient = SubResource("Gradient_yj0dh")
+
+[sub_resource type="Gradient" id="Gradient_g7m3h"]
+colors = PackedColorArray(1, 0.784314, 0.784314, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i5ot2"]
+gradient = SubResource("Gradient_g7m3h")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.844037, 0.215596)
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iu014")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_r8lvc")
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = -18.0
+offset_top = 52.0
+offset_right = 678.0
+offset_bottom = 258.0
+texture = ExtResource("2_0j52o")
+expand_mode = 1
+
+[node name="CenterContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="TextureButton" parent="CenterContainer"]
+layout_mode = 2
+offset_left = 69.0
+offset_top = 200.0
+offset_right = 339.0
+offset_bottom = 280.0
+texture_normal = ExtResource("4_i2pq5")
+texture_pressed = ExtResource("5_ihwrv")
+texture_hover = ExtResource("6_bxss0")
+stretch_mode = 0
+
+[node name="ButtonsLight" type="PointLight2D" parent="CenterContainer/Play"]
+position = Vector2(135.5, 40.5)
+scale = Vector2(0.538862, 40.5128)
+energy = 0.8
+texture = SubResource("GradientTexture1D_gp0hg")
+texture_scale = 1.95
+
+[node name="Options" type="TextureButton" parent="CenterContainer"]
+layout_mode = 2
+offset_left = 120.0
+offset_top = 291.0
+offset_right = 390.0
+offset_bottom = 371.0
+texture_normal = ExtResource("7_2yrao")
+texture_pressed = ExtResource("8_m4ta8")
+texture_hover = ExtResource("8_4fbjq")
+
+[node name="ButtonsLight2" type="PointLight2D" parent="CenterContainer/Options"]
+position = Vector2(135, 40.5)
+scale = Vector2(0.540865, 40.5128)
+energy = 0.8
+texture = SubResource("GradientTexture1D_g08oi")
+texture_scale = 1.95
+
+[node name="Quit" type="TextureButton" parent="CenterContainer"]
+layout_mode = 2
+offset_left = 63.0
+offset_top = 384.0
+offset_right = 333.0
+offset_bottom = 464.0
+texture_normal = ExtResource("10_xbofx")
+texture_pressed = ExtResource("11_t56ys")
+texture_hover = ExtResource("11_ibdvr")
+
+[node name="ButtonsLight3" type="PointLight2D" parent="CenterContainer/Quit"]
+position = Vector2(135, 40)
+scale = Vector2(0.540865, 41.0256)
+energy = 0.8
+texture = SubResource("GradientTexture1D_fbog7")
+texture_scale = 1.95
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.5
+blend_mode = 1
+
+[node name="TitleLight" type="PointLight2D" parent="."]
+position = Vector2(261, 146.625)
+scale = Vector2(17.9844, 2.23047)
+texture = SubResource("GradientTexture2D_i5ot2")
+
+[node name="OptionsMenu" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="CenterContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CenterContainer/Quit" to="." method="_on_quit_pressed"]

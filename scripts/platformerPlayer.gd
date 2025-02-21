@@ -46,7 +46,7 @@ func jump():
 			bufferTimer.start()
 
 func move():
-	var direction = Input.get_axis("leftMove", "rightMove")
+	var direction = Input.get_axis("moveLeft", "moveRight")
 	if is_on_floor():
 		velocity.x = move_toward(velocity.x, direction * TARGETSPEED if direction else 0, 60)
 	else:
