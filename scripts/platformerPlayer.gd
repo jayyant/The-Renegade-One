@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-@onready var sprite_2d: Sprite2D = $Node2D/Sprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var bufferTimer: Timer = $bufferTimer
 @onready var coyoteTimer: Timer = $coyoteTimer

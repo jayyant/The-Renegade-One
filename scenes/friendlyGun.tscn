@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://da20j2vmc7jxa"]
+
+[ext_resource type="Script" path="res://scripts/enemy_gun.gd" id="1_r1gje"]
+[ext_resource type="Texture2D" uid="uid://dbonfx3cxilsd" path="res://assets/Soldier_1/HandEnemy1.png" id="2_nl4re"]
+
+[node name="enemyGun" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_r1gje")
+
+[node name="HandEnemy1" type="Sprite2D" parent="."]
+position = Vector2(19.75, -0.250001)
+scale = Vector2(0.992188, 0.992188)
+texture = ExtResource("2_nl4re")
+
+[node name="Position" type="Node2D" parent="."]
+position = Vector2(47.5, -1)
+rotation = 0.00615624
+
+[node name="Burst" type="Timer" parent="."]

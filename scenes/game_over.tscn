@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://gkq48400erd3"]
+
+[ext_resource type="Texture2D" uid="uid://b78xpv2fe8m7v" path="res://assets/ui/bgtest.png" id="1_dqu05"]
+[ext_resource type="Texture2D" uid="uid://cphvuufmq7xh5" path="res://assets/ui/Restart.png" id="1_la0fr"]
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_uaplf"]
+[ext_resource type="Texture2D" uid="uid://pv8tktskolmk" path="res://assets/ui/RestartClick.png" id="2_khd7b"]
+[ext_resource type="Texture2D" uid="uid://du5uifbxbd11x" path="res://assets/ui/RestartHover.png" id="5_3j7me"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_uaplf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dqu05")
+
+[node name="restart" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -40.0
+offset_right = 135.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_la0fr")
+texture_pressed = ExtResource("2_khd7b")
+texture_hover = ExtResource("5_3j7me")
+
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]

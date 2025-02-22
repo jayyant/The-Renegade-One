@@ -106,7 +106,7 @@ func _on_reload() -> void:
 	is_reloading=true
 	print("Reloading...")
 	gun.visible = false
-	animSpr.speed_scale = 0.1
+	animSpr.speed_scale = 0.5
 	animSpr.play("reload")
 	animSpr.speed_scale = 1
 	print("Reload complete!")
