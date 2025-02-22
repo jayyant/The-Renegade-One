@@ -1,61 +1,61 @@
-[gd_scene load_steps=21 format=3 uid="uid://unisemgbgjcp"]
+[gd_scene load_steps=21 format=3 uid="uid://cgkdhol2ulwsx"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_xbhur"]
-[ext_resource type="Texture2D" uid="uid://dmaivq2vd0p3y" path="res://assets/Soldier_1/Idle.png" id="2_po5fk"]
-[ext_resource type="Texture2D" uid="uid://c2kpn5kjmlxg8" path="res://assets/Soldier_1/Dead.png" id="2_s0hy3"]
-[ext_resource type="Texture2D" uid="uid://bj5buva6c6t0b" path="res://assets/Soldier_1/Run.png" id="2_xwys6"]
-[ext_resource type="PackedScene" uid="uid://g5vgi65vk854" path="res://scenes/enemyGun.tscn" id="3_yyjvm"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_c5vf6"]
+[ext_resource type="Texture2D" uid="uid://c2kpn5kjmlxg8" path="res://assets/Soldier_1/Dead.png" id="2_xervj"]
+[ext_resource type="Texture2D" uid="uid://dmaivq2vd0p3y" path="res://assets/Soldier_1/Idle.png" id="3_lv5x5"]
+[ext_resource type="Texture2D" uid="uid://bj5buva6c6t0b" path="res://assets/Soldier_1/Run.png" id="4_vcy5v"]
+[ext_resource type="PackedScene" uid="uid://g5vgi65vk854" path="res://scenes/enemyGun.tscn" id="5_lh1av"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oexe6"]
-atlas = ExtResource("2_s0hy3")
+atlas = ExtResource("2_xervj")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c4ugj"]
-atlas = ExtResource("2_s0hy3")
+atlas = ExtResource("2_xervj")
 region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1trit"]
-atlas = ExtResource("2_s0hy3")
+atlas = ExtResource("2_xervj")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fke4u"]
-atlas = ExtResource("2_s0hy3")
+atlas = ExtResource("2_xervj")
 region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gvmt7"]
-atlas = ExtResource("2_po5fk")
+atlas = ExtResource("3_lv5x5")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gp0pv"]
-atlas = ExtResource("2_xwys6")
+atlas = ExtResource("4_vcy5v")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mytj1"]
-atlas = ExtResource("2_xwys6")
+atlas = ExtResource("4_vcy5v")
 region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gref4"]
-atlas = ExtResource("2_xwys6")
+atlas = ExtResource("4_vcy5v")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nc28j"]
-atlas = ExtResource("2_xwys6")
+atlas = ExtResource("4_vcy5v")
 region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hn3j6"]
-atlas = ExtResource("2_xwys6")
+atlas = ExtResource("4_vcy5v")
 region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qy3va"]
-atlas = ExtResource("2_xwys6")
+atlas = ExtResource("4_vcy5v")
 region = Rect2(640, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_htx3x"]
-atlas = ExtResource("2_xwys6")
+atlas = ExtResource("4_vcy5v")
 region = Rect2(768, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jtims"]
-atlas = ExtResource("2_xwys6")
+atlas = ExtResource("4_vcy5v")
 region = Rect2(896, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iw87b"]
@@ -123,7 +123,7 @@ height = 123.333
 position = Vector2(4, 0)
 scale = Vector2(3, 3)
 collision_layer = 9
-script = ExtResource("1_xbhur")
+script = ExtResource("1_c5vf6")
 metadata/hp = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -146,7 +146,7 @@ target_position = Vector2(70, 0)
 collision_mask = 9
 hit_from_inside = true
 
-[node name="enemyGun" parent="." instance=ExtResource("3_yyjvm")]
+[node name="enemyGun" parent="." instance=ExtResource("5_lh1av")]
 position = Vector2(-16.3333, -37.6667)
 scale = Vector2(1.46216, 1.46216)
 

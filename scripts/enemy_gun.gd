@@ -20,33 +20,17 @@ func _process(_delta: float) -> void:
 		gunOrient()
 
 func gunOrient():
-	look_at(player.global_position)  # Ensure global position
-	# Flip gun if facing left
+	look_at(player.global_position)
 	var is_facing_left = player.global_position.x < global_position.x
 	scale.y = -gunScale if is_facing_left else gunScale
 
-	# Fix RayCast2D rotation
-	rc2.rotation = 0  # Reset rotation
-	rc2.target_position = (player.global_position - rc2.global_position).normalized() * 100  # Adjust direction
+	rc2.rotation = 0 
+	rc2.target_position = (player.global_position - rc2.global_position).normalized() * 100 
 
-	#Gun Shoulder Offset
-	if enemy.velocity.x==0:
-		position = shoulder_position_idle.position
-	elif is_facing_left:
-		position = shoulder_position_right.position
-	else:
-		position = shoulder_position_left.position
-
-	# Check if can fire
 	if canFire and rc2.is_colliding():
 		var collider = rc2.get_collider()
-		if collider and collider.is_in_group("shootable"):
-			var space_state = get_world_2d().direct_space_state
-			var query = PhysicsRayQueryParameters2D.create(global_position, collider.global_position)
-			var result = space_state.intersect_ray(query)
-
-			if result and result.collider == collider:
-				fire()
+		if collider and collider.is_in_group("player"):
+			fire()
 
 func fire():
 	canFire = false

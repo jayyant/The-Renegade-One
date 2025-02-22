@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2ixjdt33yvhf"]
 
 [ext_resource type="Script" path="res://scripts/gun.gd" id="1_hiq1k"]
-[ext_resource type="Texture2D" uid="uid://cdlck6nqnp7q1" path="res://assets/Player/Hand.png" id="2_mb03y"]
+[ext_resource type="Texture2D" uid="uid://cdlck6nqnp7q1" path="res://assets/Soldier_2/Hand.png" id="2_mb03y"]
 
 [node name="Gun" type="Node2D"]
 scale = Vector2(0.5, 0.5)
