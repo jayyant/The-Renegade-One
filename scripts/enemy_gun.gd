@@ -1,5 +1,7 @@
 extends Node2D
 
+const MAGAZINETOTAL = 6
+
 @export var fireRateInterval: float = 1.0  # Fire rate per enemy
 @export var despawnTime: float = 1.0  # Bullet lifespan
 
@@ -14,6 +16,10 @@ extends Node2D
 var bulletPath = preload("res://scenes/enemyBullet.tscn")
 var canFire: bool = true
 var gunScale = scale.y
+var mag = MAGAZINETOTAL
+var reloading = false  # New reload flag
+
+signal reload
 
 func _process(_delta: float) -> void:
 	if not enemy.get_meta("isdead"):
@@ -30,14 +36,20 @@ func gunOrient():
 	if canFire and rc2.is_colliding():
 		var collider = rc2.get_collider()
 		if collider and collider.is_in_group("player"):
-			fire()
+			if mag > 0:
+				fire()
+			elif not reloading:  # Prevent continuous reloading calls
+				reloading = true
+				emit_signal("reload")
 
 func fire():
+	mag -= 1
+	print(mag)
 	canFire = false
 
 	var bullet = bulletPath.instantiate()
 	bullet.global_position = shootPos.global_position
-	bullet.rotation = rotation  # Ensure proper direction
+	bullet.rotation = rotation
 	bullet.direction = rotation  # Assigns the angle directly
 
 	if player and is_instance_valid(player) and player.has_method("_on_bullet_hit"):

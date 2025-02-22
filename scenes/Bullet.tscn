@@ -8,6 +8,7 @@ size = Vector2(18.7532, 5.60912)
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["bullets"]]
 scale = Vector2(0.525, 0.7)
+collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_n6xkp")
 

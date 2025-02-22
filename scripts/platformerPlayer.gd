@@ -6,13 +6,14 @@ extends CharacterBody2D
 @onready var coyoteTimer: Timer = $coyoteTimer
 @onready var camera: Camera2D = $Camera2D
 @onready var animSpr: AnimatedSprite2D = $AnimatedSprite2D
+@onready var deathscreen: Control = $CanvasLayer/Control
 
 const TARGETSPEED = 350.0
 const JUMP_VELOCITY = 800.0
 const SPEED = 200.0
 const GRAVITY = 980
 const AIR_CONTROL = 0.8
-const TOTHP=100
+const TOTHP=500
 
 var jumpBuffer:bool = false
 var coyoteTime:bool = false
@@ -67,8 +68,7 @@ func coyoteTimeout():
 	coyoteTime = false
 
 func _on_bullet_hit():
-	print("Player hit!")
 	hp -= 50
 	if hp <= 0:
 		print("Dead")
-		hp+=100
+		deathscreen.show()
