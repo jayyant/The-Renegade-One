@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://cavvfvi6in66o"]
+[gd_scene load_steps=17 format=4 uid="uid://cavvfvi6in66o"]
 
 [ext_resource type="Texture2D" uid="uid://fqaraak4jqs4" path="res://assets/Backgrounds/Level1/1/1.png" id="1_v8c32"]
 [ext_resource type="Texture2D" uid="uid://bctxvhl6mstuv" path="res://assets/Backgrounds/Level1/1/2.png" id="2_7ndmt"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://gkq48400erd3" path="res://scenes/game_over.tscn" id="8_1sxx1"]
 [ext_resource type="FontFile" uid="uid://b04llu46act52" path="res://assets/fonts/clacon2.ttf" id="9_sptd1"]
 [ext_resource type="Texture2D" uid="uid://b5kgde86cmsll" path="res://assets/BulletSprite.png" id="10_uj7id"]
+[ext_resource type="PackedScene" uid="uid://cx1ngkmwvjhn0" path="res://scenes/friendly.tscn" id="11_4jlh1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3m5bm"]
 texture = ExtResource("3_5vs6g")
@@ -211,6 +212,10 @@ collision_mask = 16
 position = Vector2(0, -9.53674e-07)
 shape = SubResource("RectangleShape2D_rjkx6")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Barrier2"]
+position = Vector2(0.000184619, 51)
+shape = SubResource("RectangleShape2D_rjkx6")
+
 [node name="Barrier3" type="StaticBody2D" parent="."]
 position = Vector2(596, -161)
 rotation = 1.5708
@@ -222,7 +227,7 @@ position = Vector2(-8, 3.00012)
 shape = SubResource("RectangleShape2D_rjkx6")
 
 [node name="Barrier4" type="StaticBody2D" parent="."]
-position = Vector2(-576, -108)
+position = Vector2(-631, -178)
 rotation = 1.5708
 collision_layer = 16
 collision_mask = 16
@@ -232,7 +237,7 @@ position = Vector2(-0.000350952, -96)
 shape = SubResource("RectangleShape2D_rjkx6")
 
 [node name="Barrier5" type="StaticBody2D" parent="."]
-position = Vector2(-521, -109)
+position = Vector2(-553, -178)
 rotation = 1.5708
 collision_layer = 16
 collision_mask = 16
@@ -293,3 +298,11 @@ offset_bottom = 670.845
 rotation = -0.785397
 scale = Vector2(2.27258, 2.27258)
 texture = ExtResource("10_uj7id")
+
+[node name="Friendly" parent="." instance=ExtResource("11_4jlh1")]
+position = Vector2(-493, -199)
+scale = Vector2(0.45, 0.45)
+
+[node name="Friendly2" parent="." instance=ExtResource("11_4jlh1")]
+position = Vector2(264, -36)
+scale = Vector2(0.45, 0.45)

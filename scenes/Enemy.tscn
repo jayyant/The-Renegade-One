@@ -231,7 +231,7 @@ metadata/hp = 0
 position = Vector2(-0.333368, -66.333)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_iw87b")
-animation = &"idle"
+animation = &"death"
 
 [node name="enemyGun" parent="." instance=ExtResource("3_yyjvm")]
 position = Vector2(-16.3333, -37.6667)

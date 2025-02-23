@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bv7bhgwtm7ghy"]
+[gd_scene load_steps=17 format=4 uid="uid://bv7bhgwtm7ghy"]
 
 [ext_resource type="Texture2D" uid="uid://bctxvhl6mstuv" path="res://assets/Backgrounds/Level1/1/2.png" id="1_etbp5"]
 [ext_resource type="PackedScene" uid="uid://c76qop7v8wc65" path="res://scenes/platformerPlayer.tscn" id="2_gxvcv"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b4u3u111rf4nq" path="res://scenes/game_manager.tscn" id="9_1oi58"]
 [ext_resource type="Texture2D" uid="uid://b5kgde86cmsll" path="res://assets/BulletSprite.png" id="9_n6s8i"]
 [ext_resource type="FontFile" uid="uid://b04llu46act52" path="res://assets/fonts/clacon2.ttf" id="9_nmrmx"]
+[ext_resource type="PackedScene" uid="uid://cx1ngkmwvjhn0" path="res://scenes/friendly.tscn" id="11_28f41"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3m5bm"]
 texture = ExtResource("3_r400n")
@@ -284,3 +285,7 @@ offset_bottom = 670.845
 rotation = -0.785397
 scale = Vector2(2.27258, 2.27258)
 texture = ExtResource("9_n6s8i")
+
+[node name="Friendly" parent="." instance=ExtResource("11_28f41")]
+position = Vector2(-186, -54)
+scale = Vector2(0.45, 0.45)

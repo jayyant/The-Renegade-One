@@ -8,7 +8,8 @@ func _ready() -> void:
 		print(stats.enemiesKilled)
 		print(stats.friendliesKilled)
 
-
+func friendlyKilled():
+	stats.enemiesKilled += 1
 
 func printall():
 	print(stats.enemiesKilled)

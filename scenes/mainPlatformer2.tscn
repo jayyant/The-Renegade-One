@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://wl8cuu1tk5vh"]
+[gd_scene load_steps=21 format=4 uid="uid://wl8cuu1tk5vh"]
 
 [ext_resource type="Texture2D" uid="uid://brvme1mgdi7rw" path="res://assets/IndustrialTileset.png" id="1_dfw7f"]
 [ext_resource type="Texture2D" uid="uid://dfg465pd5o2j7" path="res://assets/Backgrounds/IndustrialBackground/4.png" id="1_idkxg"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://gkq48400erd3" path="res://scenes/game_over.tscn" id="6_ojke7"]
 [ext_resource type="FontFile" uid="uid://b04llu46act52" path="res://assets/fonts/clacon2.ttf" id="12_f5wpo"]
 [ext_resource type="Texture2D" uid="uid://b5kgde86cmsll" path="res://assets/BulletSprite.png" id="13_r52nl"]
+[ext_resource type="PackedScene" uid="uid://cx1ngkmwvjhn0" path="res://scenes/friendly.tscn" id="14_isop0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_j5f0y"]
 
@@ -322,11 +323,15 @@ scale = Vector2(1.31746, 1.31746)
 texture = ExtResource("2_3p8on")
 
 [node name="Enemy" parent="." instance=ExtResource("2_swosp")]
-position = Vector2(3.99999, -380)
+position = Vector2(-121, -155)
+scale = Vector2(0.45, 0.45)
+
+[node name="Enemy4" parent="." instance=ExtResource("2_swosp")]
+position = Vector2(1064, -92)
 scale = Vector2(0.45, 0.45)
 
 [node name="Enemy2" parent="." instance=ExtResource("2_swosp")]
-position = Vector2(-267, 68)
+position = Vector2(1, -383)
 scale = Vector2(0.45, 0.45)
 
 [node name="Enemy3" parent="." instance=ExtResource("2_swosp")]
@@ -404,7 +409,7 @@ shape = SubResource("RectangleShape2D_rjkx6")
 
 [node name="Player" parent="." instance=ExtResource("4_e4sbk")]
 unique_name_in_owner = true
-position = Vector2(-866, -366)
+position = Vector2(-858, -275)
 collision_mask = 33
 
 [node name="Node2D" type="Node2D" parent="Player"]
@@ -469,3 +474,11 @@ offset_bottom = 670.845
 rotation = -0.785397
 scale = Vector2(2.27258, 2.27258)
 texture = ExtResource("13_r52nl")
+
+[node name="Friendly" parent="." instance=ExtResource("14_isop0")]
+position = Vector2(742, -86)
+scale = Vector2(0.45, 0.45)
+
+[node name="Friendly2" parent="." instance=ExtResource("14_isop0")]
+position = Vector2(-793, -183)
+scale = Vector2(0.45, 0.45)

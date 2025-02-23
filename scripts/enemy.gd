@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 150.0
 const GRAVITY = 980.0
-const TOTHP = 100
+const TOTHP = 150
 
 @onready var animSpr: AnimatedSprite2D = $AnimatedSprite2D
 @onready var player: CharacterBody2D = %Player
@@ -102,7 +102,7 @@ func _on_bullet_hit():
 		return
 
 	print(name, " hit! Current HP:", get_meta("hp"))
-	set_meta("hp", get_meta("hp") - 50)
+	set_meta("hp", get_meta("hp") - 10)
 
 	if get_meta("hp") <= 0:
 		die()
