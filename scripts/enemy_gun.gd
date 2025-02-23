@@ -2,8 +2,8 @@ extends Node2D
 
 const MAGAZINETOTAL = 6
 
-@export var fireRateInterval: float = 1.0  # Fire rate per enemy
-@export var despawnTime: float = 1.0  # Bullet lifespan
+@export var fireRateInterval: float = 1.0
+@export var despawnTime: float = 1.0
 
 @onready var shootPos: Node2D = $Position
 @onready var player: CharacterBody2D = $"../../Player"
@@ -17,7 +17,7 @@ var bulletPath = preload("res://scenes/enemyBullet.tscn")
 var canFire: bool = true
 var gunScale = scale.y
 var mag = MAGAZINETOTAL
-var reloading = false  # New reload flag
+var reloading = false
 
 signal reload
 
@@ -26,25 +26,38 @@ func _process(_delta: float) -> void:
 		gunOrient()
 
 func gunOrient():
-	look_at(player.global_position)
+	# Calculate the direction to the player
+	var direction = player.global_position - global_position
+	var angle_to_player = direction.angle()
+
+	# Set gun rotation to face player
+	rotation = angle_to_player
+
+	# Position and rotate RayCast to align with gun
+	rc2.global_position = shootPos.global_position  # Ensure RayCast starts at the correct position
+	rc2.rotation = rotation  # Rotate RayCast to match gun rotation
+
+	# Flip sprite scale so the gun is held properly in both directions
 	var is_facing_left = player.global_position.x < global_position.x
 	scale.y = -gunScale if is_facing_left else gunScale
-
-	rc2.rotation = 0 
-	rc2.target_position = (player.global_position - rc2.global_position).normalized() * 100 
-
+	
+	if is_facing_left:
+		position = shoulder_position_right.position  # Move to the left shoulder
+	else:
+		position = shoulder_position_left.position  # Move to the right shoulder
+	
+	# Shooting logic
 	if canFire and rc2.is_colliding():
 		var collider = rc2.get_collider()
 		if collider and collider.is_in_group("player"):
 			if mag > 0:
 				fire()
-			elif not reloading:  # Prevent continuous reloading calls
+			elif not reloading:
 				reloading = true
 				emit_signal("reload")
 
 func fire():
 	mag -= 1
-	print(mag)
 	canFire = false
 
 	var bullet = bulletPath.instantiate()

@@ -12,11 +12,12 @@ const TOTHP = 100
 @onready var shoulder_position_left: Marker2D = $ShoulderPositionLeft
 @onready var shoulder_position_right: Marker2D = $ShoulderPositionRight
 @onready var stoprc: RayCast2D = $StopRC
-@onready var gunColl: CollisionShape2D = $CollisionShape2D
+@onready var gunColl: CollisionShape2D = $GunCollission
+@onready var shootrc: RayCast2D = $RayCast2D
 
 var movable: bool = true
 var last_direction = 1
-var is_reloading: bool = false 
+var is_reloading: bool = false
 
 func _ready():
 	set_meta("isdead", false)
@@ -29,43 +30,57 @@ func _physics_process(delta: float) -> void:
 		set_physics_process(false)
 		return
 
+	var direction = (player.global_position - global_position).normalized()	
+	var is_facing_left = player.global_position.x < global_position.x
+
 	# Gravity effect
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta 
 
 	# RayCast check for movement
-	stoprc.rotation = 0
-	stoprc.target_position = (player.global_position - stoprc.global_position).normalized() * 70
 	var collider = stoprc.get_collider()
 	movable = collider == null or not collider.is_in_group("player")
 
-	movementAI()
+	movementAI(direction,is_facing_left)
 	GunOrient()
 	move_and_slide()
 
 func GunOrient():
-	var is_facing_left = player.global_position.x < global_position.x
-	if is_facing_left:
-		gun.position = shoulder_position_right.position
-	else:
-		gun.position = shoulder_position_left.position
+	# Calculate the direction to the player
+	var direction_to_player = player.global_position - gun.global_position
+	var angle_to_player = direction_to_player.angle()
 
-func movementAI():
+	# Set gun rotation to face player
+	gun.rotation = angle_to_player
+
+	# Align RayCasts with the gun's position and apply rotation
+	shootrc.global_position = gun.global_position + direction_to_player.normalized()  # Small offset from the gun's center
+	stoprc.global_position = gun.global_position + direction_to_player.normalized()
+
+	# Smoothly rotate both RayCasts toward the gun's angle using lerp_angle
+	shootrc.rotation = lerp_angle(shootrc.rotation, gun.rotation, 0.5)
+	stoprc.rotation = lerp_angle(stoprc.rotation, gun.rotation, 0.7)
+
+
+
+func movementAI(direction,is_facing_left):
 	if is_reloading:
 		return
+	
+	if is_facing_left:
+		animSpr.flip_h = true
+	else:
+		animSpr.flip_h = false
 
 	if not movable:
 		velocity.x = 0
 		if animSpr.animation != "idle":
-			animSpr.play("idle")  # Prevents animation interruption
+			animSpr.play("idle")
 		return
 	
-	var direction = (player.global_position - global_position).normalized()
 	if direction.x > 0 and last_direction != 1:
-		animSpr.flip_h = false
 		last_direction = 1
 	elif direction.x < 0 and last_direction != -1:
-		animSpr.flip_h = true
 		last_direction = -1
 
 	# Prevent walking into walls
@@ -104,12 +119,8 @@ func die():
 
 func _on_reload() -> void:
 	is_reloading=true
-	print("Reloading...")
 	gun.visible = false
-	animSpr.speed_scale = 0.5
 	animSpr.play("reload")
-	animSpr.speed_scale = 1
-	print("Reload complete!")
 	var reload_time = 1
 	get_tree().create_timer(reload_time).timeout.connect(_on_reload_complete)
 
