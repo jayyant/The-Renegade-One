@@ -1,0 +1,477 @@
+[gd_scene load_steps=51 format=3 uid="uid://beo3qt74862ov"]
+
+[ext_resource type="PackedScene" uid="uid://cql4gpmc6vl4s" path="res://scenes/rpg_player.tscn" id="2_o26c5"]
+[ext_resource type="Script" path="res://scripts/interaction_menu.gd" id="3_vtcxq"]
+[ext_resource type="Texture2D" uid="uid://te30kbgb6gmd" path="res://assets/ui/dialogbox.png" id="4_ruf88"]
+[ext_resource type="LabelSettings" uid="uid://cn474ub5lko2k" path="res://scripts/text.tres" id="5_7gthk"]
+[ext_resource type="PackedScene" uid="uid://cavrvgeklpc5i" path="res://scenes/dialogue.tscn" id="6_vr0ia"]
+[ext_resource type="PackedScene" uid="uid://doo67v31yvyci" path="res://scenes/npc.tscn" id="7_mbwcc"]
+[ext_resource type="Texture2D" uid="uid://bhcex6giolbdl" path="res://assets/npcs/martha.png" id="8_3q35j"]
+[ext_resource type="Texture2D" uid="uid://dabs8f2evb4t8" path="res://assets/props/streetlight.png" id="9_pq365"]
+[ext_resource type="Script" path="res://scripts/light.gd" id="10_dsauc"]
+[ext_resource type="PackedScene" uid="uid://b4u3u111rf4nq" path="res://scenes/game_manager.tscn" id="11_dd75n"]
+[ext_resource type="Texture2D" uid="uid://dluob4v41msj8" path="res://assets/props/lightpart.png" id="11_pbkrx"]
+[ext_resource type="Script" path="res://scripts/all_dialogues.gd" id="12_wnyki"]
+[ext_resource type="PackedScene" uid="uid://cl0hij2812c1w" path="res://scenes/exit.tscn" id="13_yd3un"]
+
+[sub_resource type="Gradient" id="Gradient_byl7j"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.0728426, 0.0728426, 0.0728426, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ibf6f"]
+gradient = SubResource("Gradient_byl7j")
+
+[sub_resource type="Gradient" id="Gradient_h8vad"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.0980392, 0.0705882, 0.0705882, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rnok6"]
+gradient = SubResource("Gradient_h8vad")
+
+[sub_resource type="Gradient" id="Gradient_tnxny"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.378923, 0.304679, 0.304612, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bv8r8"]
+gradient = SubResource("Gradient_tnxny")
+
+[sub_resource type="Gradient" id="Gradient_bnk74"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.0980392, 0.0705882, 0.0705882, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cd0jf"]
+gradient = SubResource("Gradient_bnk74")
+
+[sub_resource type="Gradient" id="Gradient_kb11k"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.380392, 0.305882, 0.305882, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l4ymm"]
+gradient = SubResource("Gradient_kb11k")
+
+[sub_resource type="Animation" id="Animation_m42cd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect/Text:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect/Interact:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect/Leave:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_k2uki"]
+resource_name = "animate text"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect/Text:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect/Interact:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect/Leave:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fd7gs"]
+_data = {
+"RESET": SubResource("Animation_m42cd"),
+"animate text": SubResource("Animation_k2uki")
+}
+
+[sub_resource type="Gradient" id="Gradient_cys8a"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r7wah"]
+gradient = SubResource("Gradient_cys8a")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.899083, 0.197248)
+
+[sub_resource type="Gradient" id="Gradient_4vc51"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f0qrr"]
+gradient = SubResource("Gradient_4vc51")
+
+[sub_resource type="Gradient" id="Gradient_jtrtt"]
+offsets = PackedFloat32Array(0.623377, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_w23tu"]
+gradient = SubResource("Gradient_jtrtt")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kstdr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kw47"]
+size = Vector2(25, 247)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o6i2h"]
+radius = 210.021
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1eiqu"]
+atlas = ExtResource("8_3q35j")
+region = Rect2(0, 0, 128, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrxh8"]
+atlas = ExtResource("8_3q35j")
+region = Rect2(128, 0, 128, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5jew"]
+atlas = ExtResource("8_3q35j")
+region = Rect2(256, 0, 128, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkfrg"]
+atlas = ExtResource("8_3q35j")
+region = Rect2(384, 0, 128, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb1f8"]
+atlas = ExtResource("8_3q35j")
+region = Rect2(512, 0, 128, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gvey"]
+atlas = ExtResource("8_3q35j")
+region = Rect2(640, 0, 128, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btglo"]
+atlas = ExtResource("8_3q35j")
+region = Rect2(768, 0, 128, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuryh"]
+atlas = ExtResource("8_3q35j")
+region = Rect2(896, 0, 128, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pldfa"]
+atlas = ExtResource("8_3q35j")
+region = Rect2(1024, 0, 128, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3lat"]
+atlas = ExtResource("8_3q35j")
+region = Rect2(1152, 0, 128, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24l0c"]
+atlas = ExtResource("8_3q35j")
+region = Rect2(1280, 0, 128, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ohej"]
+atlas = ExtResource("8_3q35j")
+region = Rect2(1408, 0, 128, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7iop3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1eiqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrxh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5jew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkfrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wb1f8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gvey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btglo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuryh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pldfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3lat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24l0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ohej")
+}],
+"loop": true,
+"name": &"martha",
+"speed": 7.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_mic4g"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dp6vn"]
+gradient = SubResource("Gradient_mic4g")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.784404, 0.174312)
+
+[node name="battle" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 362.0
+offset_top = 189.0
+offset_right = 2341.0
+offset_bottom = 1396.0
+texture = SubResource("GradientTexture1D_ibf6f")
+
+[node name="RPGPlayer" parent="." groups=["player"] instance=ExtResource("2_o26c5")]
+unique_name_in_owner = true
+position = Vector2(1193, 752)
+
+[node name="InteractionMenu" type="CanvasLayer" parent="RPGPlayer"]
+visible = false
+script = ExtResource("3_vtcxq")
+
+[node name="TextureRect" type="TextureRect" parent="RPGPlayer/InteractionMenu"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -302.0
+offset_top = -236.0
+offset_right = 302.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_ruf88")
+
+[node name="Text" type="Label" parent="RPGPlayer/InteractionMenu/TextureRect"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 21.0
+offset_right = 574.0
+offset_bottom = 63.0
+text = "Hello there, general kenobi"
+label_settings = ExtResource("5_7gthk")
+
+[node name="Interact" type="TextureButton" parent="RPGPlayer/InteractionMenu/TextureRect"]
+visible = false
+layout_mode = 0
+offset_left = 60.0
+offset_top = 65.0
+offset_right = 255.0
+offset_bottom = 105.0
+texture_normal = SubResource("GradientTexture1D_rnok6")
+texture_hover = SubResource("GradientTexture1D_bv8r8")
+stretch_mode = 0
+
+[node name="IT" type="Label" parent="RPGPlayer/InteractionMenu/TextureRect/Interact"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "> Interact"
+label_settings = ExtResource("5_7gthk")
+
+[node name="Leave" type="TextureButton" parent="RPGPlayer/InteractionMenu/TextureRect"]
+visible = false
+layout_mode = 0
+offset_left = 60.0
+offset_top = 113.0
+offset_right = 255.0
+offset_bottom = 153.0
+texture_normal = SubResource("GradientTexture1D_cd0jf")
+texture_hover = SubResource("GradientTexture1D_l4ymm")
+stretch_mode = 0
+
+[node name="LT" type="Label" parent="RPGPlayer/InteractionMenu/TextureRect/Leave"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "> Leave"
+label_settings = ExtResource("5_7gthk")
+
+[node name="TextAnimate" type="AnimationPlayer" parent="RPGPlayer/InteractionMenu"]
+libraries = {
+"": SubResource("AnimationLibrary_fd7gs")
+}
+
+[node name="Dialogue" parent="RPGPlayer" instance=ExtResource("6_vr0ia")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="RPGPlayer"]
+limit_left = 395
+limit_top = 238
+limit_right = 2320
+limit_bottom = 1354
+
+[node name="Light1" type="PointLight2D" parent="RPGPlayer"]
+position = Vector2(1.00002, -68)
+scale = Vector2(10.3789, 10.2272)
+color = Color(0.678711, 0.504164, 0.358791, 1)
+energy = 0.45
+texture = SubResource("GradientTexture2D_r7wah")
+
+[node name="GameManager" parent="." instance=ExtResource("11_dd75n")]
+unique_name_in_owner = true
+
+[node name="AllDialogues" type="Label" parent="GameManager"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("12_wnyki")
+
+[node name="Exit" parent="." instance=ExtResource("13_yd3un")]
+position = Vector2(2205, 709)
+
+[node name="Sprite2D" type="Sprite2D" parent="Exit"]
+position = Vector2(5.38826e-05, -64)
+scale = Vector2(0.292968, 166.25)
+texture = SubResource("GradientTexture1D_f0qrr")
+
+[node name="PointLight2D" type="PointLight2D" parent="Exit"]
+position = Vector2(-162.5, -63)
+scale = Vector2(1.56641, 168)
+texture = SubResource("GradientTexture1D_w23tu")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.91915, 0.977322, 0, 1)
+energy = 0.4
+blend_mode = 1
+
+[node name="WorldBorders" type="Node" parent="."]
+
+[node name="WorldBorderX" type="StaticBody2D" parent="WorldBorders"]
+position = Vector2(369, 811)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/WorldBorderX"]
+shape = SubResource("WorldBoundaryShape2D_kstdr")
+
+[node name="WorldBorderX2" type="StaticBody2D" parent="WorldBorders"]
+position = Vector2(2333, 698)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/WorldBorderX2"]
+shape = SubResource("WorldBoundaryShape2D_kstdr")
+
+[node name="WorldBorderY" type="StaticBody2D" parent="WorldBorders"]
+position = Vector2(1398, 1390)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/WorldBorderY"]
+shape = SubResource("WorldBoundaryShape2D_kstdr")
+
+[node name="WorldBorderY2" type="StaticBody2D" parent="WorldBorders"]
+position = Vector2(1343, 213)
+rotation = -3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/WorldBorderY2"]
+shape = SubResource("WorldBoundaryShape2D_kstdr")
+
+[node name="Props" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Props"]
+position = Vector2(1675, 678)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/StaticBody2D"]
+position = Vector2(-52.5, -39.5)
+shape = SubResource("RectangleShape2D_3kw47")
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/StaticBody2D"]
+position = Vector2(-102.75, -84.5)
+scale = Vector2(6.01219, 5.35937)
+texture = ExtResource("9_pq365")
+flip_h = true
+
+[node name="Light" type="Area2D" parent="Props"]
+position = Vector2(1545, 637)
+script = ExtResource("10_dsauc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/Light"]
+position = Vector2(1.00001, 8.00001)
+scale = Vector2(3.91082, 3.91082)
+texture = ExtResource("11_pbkrx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Light"]
+position = Vector2(19, 2)
+shape = SubResource("CircleShape2D_o6i2h")
+debug_color = Color(0.946164, 5.19812e-06, 0.589084, 0.42)
+
+[node name="NPC" parent="." instance=ExtResource("7_mbwcc")]
+z_index = 5
+position = Vector2(1507, 672)
+scale = Vector2(1.4, 1.4433)
+metadata/Name = "Martha"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC"]
+position = Vector2(7.85715, 0.692853)
+scale = Vector2(0.639241, 0.639241)
+sprite_frames = SubResource("SpriteFrames_7iop3")
+animation = &"martha"
+autoplay = "martha"
+frame_progress = 0.915906
+flip_h = true
+
+[node name="PointLight2D" type="PointLight2D" parent="NPC"]
+position = Vector2(-2.67029e-05, -1.38573)
+scale = Vector2(2.70982, 2.70982)
+energy = 0.6
+texture = SubResource("GradientTexture2D_dp6vn")
+
+[connection signal="pressed" from="RPGPlayer/InteractionMenu/TextureRect/Interact" to="RPGPlayer/InteractionMenu" method="_on_interact_pressed"]
+[connection signal="body_entered" from="Props/Light" to="Props/Light" method="_on_body_entered"]
+[connection signal="body_exited" from="Props/Light" to="Props/Light" method="_on_body_exited"]
+[connection signal="near" from="NPC" to="RPGPlayer" method="_on_npc_near"]
+[connection signal="notnear" from="NPC" to="RPGPlayer" method="_on_npc_notnear"]

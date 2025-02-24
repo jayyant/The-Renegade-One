@@ -53,22 +53,23 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cycqk"]
-size = Vector2(75.5, 130)
+size = Vector2(54, 118)
 
 [node name="RPGPlayer" type="CharacterBody2D"]
 script = ExtResource("1_x8khu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-5, -63)
-scale = Vector2(0.926032, 0.926032)
+position = Vector2(-1, -59.6607)
+scale = Vector2(0.881508, 0.881508)
 sprite_frames = SubResource("SpriteFrames_7q8bh")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5, -68)
+position = Vector2(1, -62)
 shape = SubResource("RectangleShape2D_cycqk")
 
 [node name="InteractionPrompt" type="Control" parent="."]
+z_index = 10
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -76,9 +77,9 @@ offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="InteractionPrompt"]
 layout_mode = 0
-offset_left = -1.0
-offset_top = -149.0
-offset_right = 143.0
-offset_bottom = -113.0
+offset_left = 10.0
+offset_top = -142.0
+offset_right = 142.0
+offset_bottom = -109.0
 texture = ExtResource("3_dtag1")
 expand_mode = 1

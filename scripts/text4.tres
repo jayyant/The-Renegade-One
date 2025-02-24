@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://csh2si0yjnpbf"]
+
+[ext_resource type="FontFile" uid="uid://4j6wibn2qjaa" path="res://assets/fonts/Crustaceans-SignatureDEMO-Regular.otf" id="1_j40qv"]
+
+[resource]
+font = ExtResource("1_j40qv")
+font_size = 75
+font_color = Color(0, 0, 0, 1)

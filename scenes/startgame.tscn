@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://cryuptb0mo26n"]
+
+[ext_resource type="Script" path="res://scripts/startgame.gd" id="1_nq4u4"]
+[ext_resource type="Texture2D" uid="uid://cyh6j0wektrdn" path="res://assets/ui/parchment.png" id="3_8g3cw"]
+[ext_resource type="FontFile" uid="uid://db30aq6d8xojj" path="res://assets/fonts/VT323-Regular.ttf" id="4_qg1ok"]
+[ext_resource type="LabelSettings" uid="uid://bhh1170vakxiw" path="res://scripts/text5.tres" id="5_2vxe2"]
+[ext_resource type="FontFile" uid="uid://b04llu46act52" path="res://assets/fonts/clacon2.ttf" id="6_6xsx6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_luvk1"]
+line_spacing = 2.0
+font = ExtResource("4_qg1ok")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bxwnr"]
+
+[node name="startgame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nq4u4")
+
+[node name="Parchment" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8g3cw")
+
+[node name="Disclaimer" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 77.0
+offset_top = 62.0
+offset_right = -74.0
+offset_bottom = 165.0
+grow_horizontal = 2
+text = "DISCLAIMER:
+All characters, stories, areas and names mentioned in this game are fictional, any relation to a real-world example is purely coincidental"
+label_settings = SubResource("LabelSettings_luvk1")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Intro" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 77.0
+offset_top = 231.0
+offset_right = -74.0
+offset_bottom = 383.0
+grow_horizontal = 2
+text = "You play as Ruford, a private in the army during wartime. In this reality, there will only be one world war and you are currently fighting in it. There are 2 factions: The Big Boys and The Wing Men.
+You are in The Big boys, and your goal is to reach the end before you die."
+label_settings = ExtResource("5_2vxe2")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="next" type="Button" parent="."]
+layout_mode = 0
+offset_left = 526.0
+offset_top = 546.0
+offset_right = 636.0
+offset_bottom = 594.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_6xsx6")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bxwnr")
+text = "Next ->"
+
+[connection signal="pressed" from="next" to="." method="_on_next_pressed"]

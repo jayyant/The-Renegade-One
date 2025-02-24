@@ -1,33 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://div2qss7k4i5j"]
+[gd_scene load_steps=3 format=3 uid="uid://chxxu8qt8x6vm"]
 
 [ext_resource type="Script" path="res://scripts/door.gd" id="1_bqw88"]
-[ext_resource type="Texture2D" uid="uid://xdyd8wlqeav2" path="res://assets/props/door.png" id="1_lnm0t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_efoqm"]
-size = Vector2(185, 68)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_euuwr"]
-size = Vector2(146, 16)
+size = Vector2(326.667, 68)
 
 [node name="Door" type="Area2D"]
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_bqw88")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.14441e-05, 5.25)
-scale = Vector2(0.975, 0.975)
-texture = ExtResource("1_lnm0t")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 29)
+position = Vector2(0, 29)
 shape = SubResource("RectangleShape2D_efoqm")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_euuwr")
-debug_color = Color(0.952764, 0.0951936, 0.492431, 0.42)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

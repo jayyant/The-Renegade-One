@@ -213,48 +213,32 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_un8ii"]
-size = Vector2(81, 20)
+size = Vector2(84.25, 20)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qb64v"]
 radius = 16.6667
 height = 123.333
 
-[node name="Enemy" type="CharacterBody2D" groups=["shootable"]]
+[node name="Enemy" type="CharacterBody2D" groups=["enemy", "shootable"]]
 position = Vector2(4, 0)
 scale = Vector2(3, 3)
 collision_layer = 9
+collision_mask = 17
 script = ExtResource("1_xbhur")
 metadata/hp = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(17.3333, -66.333)
+position = Vector2(-0.333368, -66.333)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_iw87b")
-animation = &"reload"
-frame = 11
-frame_progress = 0.426477
-speed_scale = 0.1
-
-[node name="RayCast2D" type="RayCast2D" parent="." groups=["shootable"]]
-position = Vector2(0, -40)
-scale = Vector2(10, 8)
-target_position = Vector2(90, 0)
-collision_mask = 9
-hit_from_inside = true
-
-[node name="StopRC" type="RayCast2D" parent="." groups=["shootable"]]
-position = Vector2(0, -40)
-scale = Vector2(10, 8)
-target_position = Vector2(70, 0)
-collision_mask = 9
-hit_from_inside = true
+animation = &"idle"
 
 [node name="enemyGun" parent="." instance=ExtResource("3_yyjvm")]
 position = Vector2(-16.3333, -37.6667)
 scale = Vector2(1.46216, 1.46216)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(15.8333, -37.3333)
+[node name="GunCollission" type="CollisionShape2D" parent="."]
+position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_un8ii")
 
 [node name="BodyColl" type="CollisionShape2D" parent="."]
@@ -262,15 +246,23 @@ position = Vector2(-3.33331, 1.52588e-05)
 shape = SubResource("CapsuleShape2D_qb64v")
 
 [node name="ShoulderPositionLeft" type="Marker2D" parent="."]
-position = Vector2(-13.4447, -37.5556)
+position = Vector2(-15.778, -37.5556)
 
 [node name="ShoulderPositionRight" type="Marker2D" parent="."]
-position = Vector2(13.222, -37.5556)
+position = Vector2(15.222, -37.5556)
 
-[node name="PatrolPointLeft" type="Marker2D" parent="."]
-position = Vector2(-900, 0)
+[node name="RayCast2D" type="RayCast2D" parent="." groups=["shootable"]]
+position = Vector2(-16.3333, -37.6667)
+scale = Vector2(15, 9)
+target_position = Vector2(90, 0)
+collision_mask = 9
+hit_from_inside = true
 
-[node name="PatrolPointRight" type="Marker2D" parent="."]
-position = Vector2(900, 0)
+[node name="StopRC" type="RayCast2D" parent="." groups=["shootable"]]
+position = Vector2(-16.3333, -37.6667)
+scale = Vector2(15, 9)
+target_position = Vector2(70, 0)
+collision_mask = 9
+hit_from_inside = true
 
 [connection signal="reload" from="enemyGun" to="." method="_on_reload"]

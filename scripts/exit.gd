@@ -6,6 +6,7 @@ extends Area2D
 
 func get_next_level(lvlname):
 	match lvlname:
+		"tutorialPlatformer": return "level_1"
 		"level_1": return "rpg_1"
 		"rpg_1": return "level_2"
 		"level_2": return "rpg_2"
@@ -13,14 +14,14 @@ func get_next_level(lvlname):
 		"level_3": return "rpg_3"
 		"rpg_3": return "level_4"
 		"level_4": return "rpg_4"
-		"rpg_4": return "level_5"
-		"level_5": return "endgame"
+		"rpg_4": return "endgame"
 
 
 func _on_body_entered(body: Node2D) -> void:
-	currentlevel.current_level = get_next_level(currentlevel.current_level)
-	print(currentlevel.current_level)
-	game_manager.printall()
 	if body.is_in_group("player"):
-		var path = "res://scenes/" + currentlevel.current_level +".tscn"
-		get_tree().change_scene_to_file(path)
+		currentlevel.current_level = get_next_level(currentlevel.current_level)
+		print(currentlevel.current_level)
+		game_manager.printall()
+		if body.is_in_group("player"):
+			var path = "res://scenes/" + currentlevel.current_level +".tscn"
+			get_tree().change_scene_to_file(path)

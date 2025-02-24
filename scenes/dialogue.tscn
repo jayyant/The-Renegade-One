@@ -1,19 +1,44 @@
-[gd_scene load_steps=20 format=3 uid="uid://cqla3bddjl8hs"]
+[gd_scene load_steps=25 format=3 uid="uid://cavrvgeklpc5i"]
 
 [ext_resource type="FontFile" uid="uid://b04llu46act52" path="res://assets/fonts/clacon2.ttf" id="1_7vucv"]
 [ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_b4l3x"]
 [ext_resource type="Texture2D" uid="uid://te30kbgb6gmd" path="res://assets/ui/dialogbox.png" id="1_lfhhb"]
-[ext_resource type="Texture2D" uid="uid://bk5hnfd4aaqir" path="res://assets/ui/textbg.png" id="4_4i6fo"]
+[ext_resource type="Texture2D" uid="uid://cx81fvmp25olt" path="res://assets/choicebox.png" id="4_0uxy4"]
 [ext_resource type="LabelSettings" uid="uid://cn474ub5lko2k" path="res://scripts/text.tres" id="4_t8xl0"]
-[ext_resource type="Texture2D" uid="uid://dpfpwqetnhj63" path="res://assets/ui/choiceselect.png" id="5_1s4vu"]
-[ext_resource type="Texture2D" uid="uid://ck5dbrj4klo0w" path="res://assets/ui/choicedown.png" id="6_l17gr"]
-[ext_resource type="Texture2D" uid="uid://ckm3567c01rf0" path="res://assets/ui/choicehover.png" id="6_xe8fj"]
 [ext_resource type="LabelSettings" uid="uid://detcithfuso34" path="res://scripts/text3.tres" id="7_kuwbh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_62eew"]
 font = ExtResource("1_7vucv")
 font_size = 26
 font_color = Color(3.29696e-06, 0.544774, 0.0460076, 1)
+
+[sub_resource type="Gradient" id="Gradient_ust1m"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.560784, 0.560784, 0.560784, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cyu00"]
+gradient = SubResource("Gradient_ust1m")
+
+[sub_resource type="Gradient" id="Gradient_fxnfx"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.674815, 0.674815, 0.674815, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4iep6"]
+gradient = SubResource("Gradient_fxnfx")
+
+[sub_resource type="Gradient" id="Gradient_e3bdl"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.560784, 0.560784, 0.560784, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rbw0h"]
+gradient = SubResource("Gradient_e3bdl")
+
+[sub_resource type="Gradient" id="Gradient_la0xn"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.67451, 0.67451, 0.67451, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ku87j"]
+gradient = SubResource("Gradient_la0xn")
 
 [sub_resource type="Gradient" id="Gradient_1n7pn"]
 offsets = PackedFloat32Array(0)
@@ -78,6 +103,7 @@ _data = {
 script = ExtResource("1_b4l3x")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+z_index = 1
 offset_left = 150.0
 offset_top = 330.0
 offset_right = 975.0
@@ -95,21 +121,20 @@ label_settings = SubResource("LabelSettings_62eew")
 autowrap_mode = 2
 
 [node name="Choices" type="TextureRect" parent="."]
-offset_left = 158.0
-offset_top = 181.0
-offset_right = 970.0
-offset_bottom = 281.0
-texture = ExtResource("4_4i6fo")
+offset_left = 118.0
+offset_top = 5.0
+offset_right = 934.0
+offset_bottom = 363.0
+texture = ExtResource("4_0uxy4")
 
 [node name="Choice1" type="TextureButton" parent="Choices"]
 layout_mode = 0
-offset_left = 18.0
-offset_top = 16.0
-offset_right = 375.0
-offset_bottom = 73.0
-texture_normal = ExtResource("5_1s4vu")
-texture_pressed = ExtResource("6_l17gr")
-texture_hover = ExtResource("6_xe8fj")
+offset_left = 30.0
+offset_top = 45.0
+offset_right = 387.0
+offset_bottom = 162.0
+texture_pressed = SubResource("GradientTexture1D_cyu00")
+texture_hover = SubResource("GradientTexture1D_4iep6")
 stretch_mode = 0
 
 [node name="Choice1Text" type="Label" parent="Choices/Choice1"]
@@ -123,15 +148,16 @@ offset_bottom = 13.5
 grow_vertical = 2
 text = "Choice 1"
 label_settings = ExtResource("7_kuwbh")
+autowrap_mode = 2
 
 [node name="Choice2" type="TextureButton" parent="Choices"]
 layout_mode = 0
 offset_left = 434.0
-offset_top = 16.0
+offset_top = 44.0
 offset_right = 791.0
-offset_bottom = 73.0
-texture_normal = ExtResource("5_1s4vu")
-texture_hover = ExtResource("6_xe8fj")
+offset_bottom = 162.0
+texture_pressed = SubResource("GradientTexture1D_rbw0h")
+texture_hover = SubResource("GradientTexture1D_ku87j")
 stretch_mode = 0
 
 [node name="Choice2Text" type="Label" parent="Choices/Choice2"]
@@ -145,6 +171,60 @@ offset_bottom = 13.5
 grow_vertical = 2
 text = "Choice 2"
 label_settings = ExtResource("7_kuwbh")
+autowrap_mode = 2
+
+[node name="Choices2" type="TextureRect" parent="."]
+offset_left = 118.0
+offset_top = 5.0
+offset_right = 934.0
+offset_bottom = 363.0
+texture = ExtResource("4_0uxy4")
+
+[node name="Choice3" type="TextureButton" parent="Choices2"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 45.0
+offset_right = 387.0
+offset_bottom = 162.0
+texture_pressed = SubResource("GradientTexture1D_cyu00")
+texture_hover = SubResource("GradientTexture1D_4iep6")
+stretch_mode = 0
+
+[node name="Choice3Text" type="Label" parent="Choices2/Choice3"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -12.5
+offset_right = 356.0
+offset_bottom = 13.5
+grow_vertical = 2
+text = "Choice 1"
+label_settings = ExtResource("7_kuwbh")
+autowrap_mode = 2
+
+[node name="Choice4" type="TextureButton" parent="Choices2"]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 44.0
+offset_right = 791.0
+offset_bottom = 162.0
+texture_pressed = SubResource("GradientTexture1D_rbw0h")
+texture_hover = SubResource("GradientTexture1D_ku87j")
+stretch_mode = 0
+
+[node name="Choice4Text" type="Label" parent="Choices2/Choice4"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -12.5
+offset_right = 356.0
+offset_bottom = 13.5
+grow_vertical = 2
+text = "Choice 2"
+label_settings = ExtResource("7_kuwbh")
+autowrap_mode = 2
 
 [node name="CharacterName" type="Label" parent="."]
 offset_left = 168.0
@@ -213,5 +293,7 @@ libraries = {
 
 [connection signal="pressed" from="Choices/Choice1" to="." method="_on_choice_1_pressed"]
 [connection signal="pressed" from="Choices/Choice2" to="." method="_on_choice_2_pressed"]
+[connection signal="pressed" from="Choices2/Choice3" to="." method="_on_choice_3_pressed"]
+[connection signal="pressed" from="Choices2/Choice4" to="." method="_on_choice_4_pressed"]
 [connection signal="pressed" from="HBoxContainer/SkipButton" to="." method="_on_skip_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/NextButton" to="." method="_on_next_button_pressed"]

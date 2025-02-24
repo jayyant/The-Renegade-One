@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://btpebwtam6prf"]
+
+[ext_resource type="PackedScene" uid="uid://b4u3u111rf4nq" path="res://scenes/game_manager.tscn" id="1_apx78"]
+[ext_resource type="Script" path="res://scripts/endgame.gd" id="1_lhx7v"]
+[ext_resource type="Texture2D" uid="uid://cyh6j0wektrdn" path="res://assets/ui/parchment.png" id="2_om0f8"]
+[ext_resource type="LabelSettings" uid="uid://csh2si0yjnpbf" path="res://scripts/text4.tres" id="4_3vcmp"]
+[ext_resource type="FontFile" uid="uid://b04llu46act52" path="res://assets/fonts/clacon2.ttf" id="4_43g3s"]
+[ext_resource type="LabelSettings" uid="uid://bhh1170vakxiw" path="res://scripts/text5.tres" id="4_khdmq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bxwnr"]
+
+[node name="endgame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lhx7v")
+
+[node name="GameManager" parent="." instance=ExtResource("1_apx78")]
+unique_name_in_owner = true
+
+[node name="Parchment" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_om0f8")
+
+[node name="EnemiesKilledFin" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 26.0
+offset_bottom = 95.0
+grow_horizontal = 2
+label_settings = ExtResource("4_3vcmp")
+horizontal_alignment = 1
+
+[node name="FriendliesKilledFin" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 95.0
+offset_bottom = 164.0
+grow_horizontal = 2
+label_settings = ExtResource("4_3vcmp")
+horizontal_alignment = 1
+
+[node name="ChoicesMadeFin" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 164.0
+offset_bottom = 233.0
+grow_horizontal = 2
+label_settings = ExtResource("4_3vcmp")
+horizontal_alignment = 1
+
+[node name="EndingText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 77.0
+offset_top = 271.0
+offset_right = -74.0
+offset_bottom = 546.0
+grow_horizontal = 2
+label_settings = ExtResource("4_khdmq")
+autowrap_mode = 2
+
+[node name="Finish" type="Button" parent="."]
+layout_mode = 0
+offset_left = 526.0
+offset_top = 546.0
+offset_right = 636.0
+offset_bottom = 594.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_43g3s")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bxwnr")
+text = "OK."
+
+[connection signal="pressed" from="Finish" to="." method="_on_finish_pressed"]

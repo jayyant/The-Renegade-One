@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://cql4gpmc6vl4s" path="res://scenes/rpg_player.tscn" id="1_ffq22"]
 [ext_resource type="Script" path="res://scripts/interaction_menu.gd" id="2_3engl"]
-[ext_resource type="PackedScene" uid="uid://bbss8fhgautco" path="res://scenes/npc.tscn" id="2_oj423"]
+[ext_resource type="PackedScene" uid="uid://doo67v31yvyci" path="res://scenes/npc.tscn" id="2_oj423"]
 [ext_resource type="Texture2D" uid="uid://te30kbgb6gmd" path="res://assets/ui/dialogbox.png" id="3_heyob"]
-[ext_resource type="PackedScene" uid="uid://div2qss7k4i5j" path="res://scenes/door.tscn" id="3_tkcbt"]
-[ext_resource type="PackedScene" uid="uid://cqla3bddjl8hs" path="res://scenes/dialogue.tscn" id="3_wa1qr"]
+[ext_resource type="PackedScene" uid="uid://chxxu8qt8x6vm" path="res://scenes/door.tscn" id="3_tkcbt"]
+[ext_resource type="PackedScene" uid="uid://cavrvgeklpc5i" path="res://scenes/dialogue.tscn" id="3_wa1qr"]
 [ext_resource type="LabelSettings" uid="uid://cn474ub5lko2k" path="res://scripts/text.tres" id="4_3b1e1"]
 [ext_resource type="PackedScene" uid="uid://b4u3u111rf4nq" path="res://scenes/game_manager.tscn" id="8_f85ou"]
 [ext_resource type="Script" path="res://scripts/all_dialogues.gd" id="9_bwrnr"]

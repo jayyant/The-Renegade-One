@@ -7,6 +7,9 @@ signal interaction
 @onready var interaction_menu: CanvasLayer = $InteractionMenu
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+
+
+
 var lastdir : Array = [1]
 var finaldir
 
@@ -35,6 +38,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		animated_sprite.play("idle")
 		velocity = Vector2(0,0)
+	
+	
 	interact()
 	move_and_slide()
 	
