@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=18 format=4 uid="uid://dld0p7c4rvtki"]
+=======
+[gd_scene load_steps=17 format=4 uid="uid://dld0p7c4rvtki"]
+>>>>>>> eb2ea85023fc6bb1a578b945c20dd3daad267f17
 
 [ext_resource type="Texture2D" uid="uid://fqaraak4jqs4" path="res://assets/Backgrounds/Level1/1/1.png" id="1_bhvit"]
 [ext_resource type="Texture2D" uid="uid://bctxvhl6mstuv" path="res://assets/Backgrounds/Level1/1/2.png" id="2_kafpa"]
@@ -9,8 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://c2ixjdt33yvhf" path="res://scenes/Gun.tscn" id="7_60cd4"]
 [ext_resource type="PackedScene" uid="uid://gkq48400erd3" path="res://scenes/game_over.tscn" id="8_vny1a"]
 [ext_resource type="FontFile" uid="uid://b04llu46act52" path="res://assets/fonts/clacon2.ttf" id="9_4dear"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://dcq2ndtcw132p" path="res://assets/BulletSprite.png" id="10_7fugn"]
 [ext_resource type="PackedScene" uid="uid://cl0hij2812c1w" path="res://scenes/exit.tscn" id="11_jhbgs"]
+=======
+[ext_resource type="Texture2D" uid="uid://b5kgde86cmsll" path="res://assets/BulletSprite.png" id="10_7fugn"]
+>>>>>>> eb2ea85023fc6bb1a578b945c20dd3daad267f17
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vyb2r"]
 texture = ExtResource("3_hq2ok")
@@ -331,6 +339,9 @@ text = "WALK OFF SCREEN TO
 DGO TO NEXT LEVEL"
 label_settings = SubResource("LabelSettings_kk7r4")
 horizontal_alignment = 1
+<<<<<<< HEAD
 
 [node name="Exit" parent="." instance=ExtResource("11_jhbgs")]
 position = Vector2(1186, 0)
+=======
+>>>>>>> eb2ea85023fc6bb1a578b945c20dd3daad267f17

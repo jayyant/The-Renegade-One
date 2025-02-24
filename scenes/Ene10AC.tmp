@@ -1,11 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://unisemgbgjcp"]
+[gd_scene load_steps=21 format=3 uid="uid://unisemgbgjcp"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_xbhur"]
 [ext_resource type="Texture2D" uid="uid://dmaivq2vd0p3y" path="res://assets/Soldier_1/Idle.png" id="2_po5fk"]
 [ext_resource type="Texture2D" uid="uid://c2kpn5kjmlxg8" path="res://assets/Soldier_1/Dead.png" id="2_s0hy3"]
 [ext_resource type="Texture2D" uid="uid://bj5buva6c6t0b" path="res://assets/Soldier_1/Run.png" id="2_xwys6"]
 [ext_resource type="PackedScene" uid="uid://g5vgi65vk854" path="res://scenes/enemyGun.tscn" id="3_yyjvm"]
-[ext_resource type="Texture2D" uid="uid://cotn6er4l1bww" path="res://assets/Soldier_1/Recharge.png" id="4_g48tu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oexe6"]
 atlas = ExtResource("2_s0hy3")
@@ -26,58 +25,6 @@ region = Rect2(384, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gvmt7"]
 atlas = ExtResource("2_po5fk")
 region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0dcoh"]
-atlas = ExtResource("4_g48tu")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8rykf"]
-atlas = ExtResource("4_g48tu")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c5fde"]
-atlas = ExtResource("4_g48tu")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ld2lc"]
-atlas = ExtResource("4_g48tu")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eyubr"]
-atlas = ExtResource("4_g48tu")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6u6n6"]
-atlas = ExtResource("4_g48tu")
-region = Rect2(640, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ga5sq"]
-atlas = ExtResource("4_g48tu")
-region = Rect2(768, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u6lla"]
-atlas = ExtResource("4_g48tu")
-region = Rect2(896, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hh5iw"]
-atlas = ExtResource("4_g48tu")
-region = Rect2(1024, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k8tes"]
-atlas = ExtResource("4_g48tu")
-region = Rect2(1152, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5edgx"]
-atlas = ExtResource("4_g48tu")
-region = Rect2(1280, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w7mjk"]
-atlas = ExtResource("4_g48tu")
-region = Rect2(1408, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xo7bx"]
-atlas = ExtResource("4_g48tu")
-region = Rect2(1536, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gp0pv"]
 atlas = ExtResource("2_xwys6")
@@ -140,50 +87,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0dcoh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8rykf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c5fde")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ld2lc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eyubr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6u6n6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ga5sq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u6lla")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hh5iw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k8tes")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5edgx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w7mjk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xo7bx")
-}],
-"loop": false,
-"name": &"reload",
-"speed": 20.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_gp0pv")
 }, {
 "duration": 1.0,
@@ -212,61 +115,40 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_un8ii"]
-size = Vector2(84.25, 20)
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qb64v"]
 radius = 16.6667
 height = 123.333
 
-[node name="Enemy" type="CharacterBody2D" groups=["enemy", "shootable"]]
+[node name="Enemy" type="CharacterBody2D" groups=["shootable"]]
 position = Vector2(4, 0)
 scale = Vector2(3, 3)
 collision_layer = 9
-collision_mask = 17
 script = ExtResource("1_xbhur")
 metadata/hp = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-0.333368, -66.333)
+position = Vector2(-0.666664, -66.333)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_iw87b")
-<<<<<<< HEAD
 animation = &"idle"
-=======
-animation = &"death"
->>>>>>> eb2ea85023fc6bb1a578b945c20dd3daad267f17
+
+[node name="RayCast2D" type="RayCast2D" parent="." groups=["shootable"]]
+position = Vector2(-6, -39.3334)
+scale = Vector2(10, 8)
+target_position = Vector2(90, 0)
+collision_mask = 9
+hit_from_inside = true
 
 [node name="enemyGun" parent="." instance=ExtResource("3_yyjvm")]
 position = Vector2(-16.3333, -37.6667)
 scale = Vector2(1.46216, 1.46216)
-
-[node name="GunCollission" type="CollisionShape2D" parent="."]
-position = Vector2(0, -40)
-shape = SubResource("RectangleShape2D_un8ii")
 
 [node name="BodyColl" type="CollisionShape2D" parent="."]
 position = Vector2(-3.33331, 1.52588e-05)
 shape = SubResource("CapsuleShape2D_qb64v")
 
 [node name="ShoulderPositionLeft" type="Marker2D" parent="."]
-position = Vector2(-15.778, -37.5556)
+position = Vector2(-13.4447, -37.5556)
 
 [node name="ShoulderPositionRight" type="Marker2D" parent="."]
-position = Vector2(15.222, -37.5556)
-
-[node name="RayCast2D" type="RayCast2D" parent="." groups=["shootable"]]
-position = Vector2(-16.3333, -37.6667)
-scale = Vector2(15, 9)
-target_position = Vector2(90, 0)
-collision_mask = 9
-hit_from_inside = true
-
-[node name="StopRC" type="RayCast2D" parent="." groups=["shootable"]]
-position = Vector2(-16.3333, -37.6667)
-scale = Vector2(15, 9)
-target_position = Vector2(70, 0)
-collision_mask = 9
-hit_from_inside = true
-
-[connection signal="reload" from="enemyGun" to="." method="_on_reload"]
+position = Vector2(13.222, -37.5556)

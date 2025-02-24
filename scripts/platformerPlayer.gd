@@ -102,9 +102,12 @@ func _on_bullet_hit():
 		animSpr.play("dead")
 		deathscreen.show()
 		set_physics_process(false)
+<<<<<<< HEAD
 
 
 func _on_fall_death_death() -> void:
 	animSpr.play("dead")
 	deathscreen.show()
 	set_physics_process(false)
+=======
+>>>>>>> eb2ea85023fc6bb1a578b945c20dd3daad267f17

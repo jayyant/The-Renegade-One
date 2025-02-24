@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_scene load_steps=37 format=3 uid="uid://cx1ngkmwvjhn0"]
 
 [ext_resource type="Script" path="res://scripts/friendly.gd" id="1_pwbis"]
@@ -7,6 +8,16 @@
 [ext_resource type="Script" path="res://scripts/friend_gun.gd" id="7_33as5"]
 [ext_resource type="Texture2D" uid="uid://ddvv8w5qp1vo" path="res://assets/Friendly/Reload.png" id="7_d22de"]
 [ext_resource type="Texture2D" uid="uid://cwxhydiwqjunj" path="res://assets/Friendly/Run.png" id="9_48u1y"]
+=======
+[gd_scene load_steps=36 format=3 uid="uid://cx1ngkmwvjhn0"]
+
+[ext_resource type="Script" path="res://scripts/friendly.gd" id="1_pwbis"]
+[ext_resource type="Texture2D" uid="uid://thuuv4dn5q6p" path="res://assets/Friendly/Death.png" id="3_5kv0l"]
+[ext_resource type="Texture2D" uid="uid://cudxygiukva7l" path="res://assets/Friendly/Idle.png" id="5_5srwu"]
+[ext_resource type="PackedScene" uid="uid://hbsfct2hwxqm" path="res://scenes/friend_gun.tscn" id="6_7it4q"]
+[ext_resource type="Texture2D" uid="uid://mlmpej2cbhmy" path="res://assets/Friendly/Reload.png" id="7_d22de"]
+[ext_resource type="Texture2D" uid="uid://bml0b0di7iwn4" path="res://assets/Friendly/Run.png" id="9_48u1y"]
+>>>>>>> eb2ea85023fc6bb1a578b945c20dd3daad267f17
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7m0lb"]
 atlas = ExtResource("3_5kv0l")
@@ -234,6 +245,11 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_iw87b")
 animation = &"death"
 
+<<<<<<< HEAD
+=======
+[node name="friendGun" parent="." instance=ExtResource("6_7it4q")]
+
+>>>>>>> eb2ea85023fc6bb1a578b945c20dd3daad267f17
 [node name="GunCollission" type="CollisionShape2D" parent="."]
 position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_un8ii")
@@ -261,6 +277,9 @@ scale = Vector2(15, 9)
 target_position = Vector2(70, 0)
 collision_mask = 9
 hit_from_inside = true
+<<<<<<< HEAD
 
 [node name="friendGun" parent="." instance=ExtResource("6_u5tc1")]
 script = ExtResource("7_33as5")
+=======
+>>>>>>> eb2ea85023fc6bb1a578b945c20dd3daad267f17
