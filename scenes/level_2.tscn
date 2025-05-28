@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://wl8cuu1tk5vh"]
+[gd_scene load_steps=23 format=4 uid="uid://wl8cuu1tk5vh"]
 
 [ext_resource type="Texture2D" uid="uid://es2algb7o3v7" path="res://assets/IndustrialTileset.png" id="1_dfw7f"]
 [ext_resource type="Texture2D" uid="uid://dfg465pd5o2j7" path="res://assets/Backgrounds/IndustrialBackground/4.png" id="1_idkxg"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dcq2ndtcw132p" path="res://assets/BulletSprite.png" id="13_r52nl"]
 [ext_resource type="PackedScene" uid="uid://cx1ngkmwvjhn0" path="res://scenes/Friendly.tscn" id="14_isop0"]
 [ext_resource type="PackedScene" uid="uid://cl0hij2812c1w" path="res://scenes/exit.tscn" id="15_qk38d"]
+[ext_resource type="AudioStream" uid="uid://ctl78hyxlfvud" path="res://assets/sounds/fight-for-the-future-336841.mp3" id="16_ggs6h"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_j5f0y"]
 
@@ -438,7 +439,6 @@ position = Vector2(2.66667, -6)
 position = Vector2(0.666748, -6.00001)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player"]
-visible = false
 
 [node name="Control" parent="Player/CanvasLayer" instance=ExtResource("6_ojke7")]
 
@@ -486,3 +486,11 @@ scale = Vector2(0.45, 0.45)
 
 [node name="Exit" parent="." instance=ExtResource("15_qk38d")]
 position = Vector2(1211, -49)
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-35, -101)
+stream = ExtResource("16_ggs6h")
+volume_db = -10.0
+autoplay = true
+max_distance = 10000.0
+bus = &"Music"

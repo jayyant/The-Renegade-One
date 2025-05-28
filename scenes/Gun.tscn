@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2ixjdt33yvhf"]
+[gd_scene load_steps=5 format=3 uid="uid://c2ixjdt33yvhf"]
 
 [ext_resource type="Script" path="res://scripts/gun.gd" id="1_hiq1k"]
 [ext_resource type="Texture2D" uid="uid://cdlck6nqnp7q1" path="res://assets/Soldier_2/Hand.png" id="2_mb03y"]
+[ext_resource type="AudioStream" uid="uid://cai6y4nqsaahg" path="res://assets/sounds/gun.mp3" id="3_o7rqh"]
+[ext_resource type="AudioStream" uid="uid://davlqmtxgwj4y" path="res://assets/sounds/reload.mp3" id="4_61gxa"]
 
 [node name="Gun" type="Node2D"]
 scale = Vector2(0.5, 0.5)
@@ -16,3 +18,13 @@ rotation = 0.00615624
 [node name="Hand2" type="Sprite2D" parent="."]
 position = Vector2(18, -2)
 texture = ExtResource("2_mb03y")
+
+[node name="FireAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_o7rqh")
+volume_db = -5.0
+pitch_scale = 1.2
+bus = &"SFX"
+
+[node name="ReloadAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_61gxa")
+pitch_scale = 1.2

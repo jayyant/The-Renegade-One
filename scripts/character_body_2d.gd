@@ -6,6 +6,8 @@ signal interaction
 @onready var interaction_prompt: Control = $InteractionPrompt
 @onready var interaction_menu: CanvasLayer = $InteractionMenu
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var walking_audio: AudioStreamPlayer2D = $WalkingAudio
+
 
 
 
@@ -18,7 +20,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-
+	
 	var direction = Input.get_vector("moveLeft","moveRight","moveUp","moveDown")
 	finaldir = savedir(direction.x)
 	if direction.x < 0:
@@ -33,12 +35,17 @@ func _physics_process(delta: float) -> void:
 		
 	if direction:
 		animated_sprite.play("walk")
-		velocity.x = move_toward(velocity.x,direction.x*SPEED,40)
-		velocity.y = move_toward(velocity.y,direction.y*SPEED,40)
+		velocity.x = move_toward(velocity.x, direction.x * SPEED, 40)
+		velocity.y = move_toward(velocity.y, direction.y * SPEED, 40)
+
+		if not walking_audio.playing:
+			walking_audio.play()
 	else:
 		animated_sprite.play("idle")
-		velocity = Vector2(0,0)
-	
+		velocity = Vector2.ZERO
+		if walking_audio.playing:
+			walking_audio.stop()
+
 	
 	interact()
 	move_and_slide()

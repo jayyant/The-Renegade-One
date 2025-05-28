@@ -113,9 +113,9 @@ func _on_choice_selected(choice_index):
 				game_manager.badchoiceMade()
 		"Martha":
 			if choice_index == 1:
-				current_dialogue_key = "AnswerM11"
+				current_dialogue_key = "Answer11"
 			elif choice_index == 2:
-				current_dialogue_key = "AnswerM12"
+				current_dialogue_key = "Answer12"
 				game_manager.badchoiceMade()
 	next_button.show()
 	skip_button.show()
@@ -189,13 +189,13 @@ func get_next_key() -> String:
 		"Spy":
 			match current_dialogue_key:
 				"Intro": return "Choice1"
-				"AnswerS11": return "Final"
-				"AnswerS12": return "Line1"
+				"Answer11": return "Final"
+				"Answer12": return "Line1"
 				"Line1": return "Line2"
 				"Line2": return "Line3"
 				"Line3": return "Line4"
 				"Line4": return "Choice2"
-				"AnswerS21","AnswerS22": return "Final"
+				"Answer21","Answer22": return "Final"
 				"Final": return ""
 				"Skip": return ""
 		"Martha":

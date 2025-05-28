@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://guuhaw2d6van"]
+[gd_scene load_steps=19 format=4 uid="uid://guuhaw2d6van"]
 
 [ext_resource type="Texture2D" uid="uid://fqaraak4jqs4" path="res://assets/Backgrounds/Level1/1/1.png" id="1_r73kv"]
 [ext_resource type="Texture2D" uid="uid://bctxvhl6mstuv" path="res://assets/Backgrounds/Level1/1/2.png" id="2_opgga"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cx1ngkmwvjhn0" path="res://scenes/Friendly.tscn" id="9_i3i2m"]
 [ext_resource type="Texture2D" uid="uid://dcq2ndtcw132p" path="res://assets/BulletSprite.png" id="10_81ci0"]
 [ext_resource type="PackedScene" uid="uid://cl0hij2812c1w" path="res://scenes/exit.tscn" id="12_assl6"]
+[ext_resource type="AudioStream" uid="uid://ctl78hyxlfvud" path="res://assets/sounds/fight-for-the-future-336841.mp3" id="13_5owt7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3m5bm"]
 texture = ExtResource("3_sd30m")
@@ -316,3 +317,11 @@ texture = ExtResource("10_81ci0")
 
 [node name="Exit" parent="." instance=ExtResource("12_assl6")]
 position = Vector2(1209, -2)
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-35, -101)
+stream = ExtResource("13_5owt7")
+volume_db = -10.0
+autoplay = true
+max_distance = 10000.0
+bus = &"Music"

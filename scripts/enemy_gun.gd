@@ -12,6 +12,7 @@ const MAGAZINETOTAL = 6
 @onready var shoulder_position_left: Marker2D = enemy.get_node("ShoulderPositionLeft")
 @onready var shoulder_position_right: Marker2D = enemy.get_node("ShoulderPositionRight")
 @onready var shoulder_position_idle: Marker2D = enemy.get_node("ShoulderPositionIdle")
+@onready var fire_audio: AudioStreamPlayer2D = $FireAudio
 
 var bulletPath = preload("res://scenes/enemyBullet.tscn")
 var canFire: bool = true
@@ -52,6 +53,7 @@ func gunOrient():
 		if collider and collider.is_in_group("player"):
 			if mag > 0:
 				fire()
+				fire_audio.play()
 			elif not reloading:
 				reloading = true
 				emit_signal("reload")

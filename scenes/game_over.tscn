@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://gkq48400erd3"]
 
 [ext_resource type="Texture2D" uid="uid://b78xpv2fe8m7v" path="res://assets/ui/bgtest.png" id="1_dqu05"]
-[ext_resource type="Texture2D" uid="uid://cphvuufmq7xh5" path="res://assets/ui/Restart.png" id="1_la0fr"]
+[ext_resource type="Texture2D" uid="uid://cbphiy8yj7gfh" path="res://assets/ui/Restart.png" id="1_la0fr"]
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_uaplf"]
-[ext_resource type="Texture2D" uid="uid://pv8tktskolmk" path="res://assets/ui/RestartClick.png" id="2_khd7b"]
-[ext_resource type="Texture2D" uid="uid://du5uifbxbd11x" path="res://assets/ui/RestartHover.png" id="5_3j7me"]
+[ext_resource type="Texture2D" uid="uid://5do4okr4wwrd" path="res://assets/ui/RestartClick.png" id="2_khd7b"]
+[ext_resource type="Texture2D" uid="uid://bfo67ib0kppdo" path="res://assets/ui/RestartHover.png" id="5_3j7me"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

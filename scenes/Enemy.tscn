@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://unisemgbgjcp"]
+[gd_scene load_steps=37 format=3 uid="uid://unisemgbgjcp"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_xbhur"]
 [ext_resource type="Texture2D" uid="uid://dmaivq2vd0p3y" path="res://assets/Soldier_1/Idle.png" id="2_po5fk"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bj5buva6c6t0b" path="res://assets/Soldier_1/Run.png" id="2_xwys6"]
 [ext_resource type="PackedScene" uid="uid://g5vgi65vk854" path="res://scenes/enemyGun.tscn" id="3_yyjvm"]
 [ext_resource type="Texture2D" uid="uid://cotn6er4l1bww" path="res://assets/Soldier_1/Recharge.png" id="4_g48tu"]
+[ext_resource type="AudioStream" uid="uid://d3cdm3piflsgl" path="res://assets/sounds/death3.mp3" id="7_5sb50"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oexe6"]
 atlas = ExtResource("2_s0hy3")
@@ -231,11 +232,7 @@ metadata/hp = 0
 position = Vector2(-0.333368, -66.333)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_iw87b")
-<<<<<<< HEAD
 animation = &"idle"
-=======
-animation = &"death"
->>>>>>> eb2ea85023fc6bb1a578b945c20dd3daad267f17
 
 [node name="enemyGun" parent="." instance=ExtResource("3_yyjvm")]
 position = Vector2(-16.3333, -37.6667)
@@ -268,5 +265,8 @@ scale = Vector2(15, 9)
 target_position = Vector2(70, 0)
 collision_mask = 9
 hit_from_inside = true
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_5sb50")
 
 [connection signal="reload" from="enemyGun" to="." method="_on_reload"]

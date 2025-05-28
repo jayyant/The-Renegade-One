@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://hmathynh2w34"]
+[gd_scene load_steps=35 format=4 uid="uid://hmathynh2w34"]
 
 [ext_resource type="PackedScene" uid="uid://cql4gpmc6vl4s" path="res://scenes/rpg_player.tscn" id="1_1iqt6"]
 [ext_resource type="Texture2D" uid="uid://252fkc7h6q2" path="res://assets/Tilesets/fieldtileset.png" id="1_r7kr4"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://doo67v31yvyci" path="res://scenes/npc.tscn" id="6_llc7g"]
 [ext_resource type="Texture2D" uid="uid://du0y7jmktqp3f" path="res://assets/npcs/johnmelon.png" id="7_caqyb"]
 [ext_resource type="PackedScene" uid="uid://chxxu8qt8x6vm" path="res://scenes/door.tscn" id="7_toepn"]
-[ext_resource type="AudioStream" uid="uid://dhe8tmgrjon61" path="res://assets/sounds/walkeffect.mp3" id="7_uw6i7"]
 [ext_resource type="PackedScene" uid="uid://b4u3u111rf4nq" path="res://scenes/game_manager.tscn" id="8_8i8ii"]
 [ext_resource type="Script" path="res://scripts/all_dialogues.gd" id="9_3swbk"]
 [ext_resource type="PackedScene" uid="uid://cl0hij2812c1w" path="res://scenes/exit.tscn" id="10_0xtr5"]
@@ -764,10 +763,6 @@ scale = Vector2(10.3789, 10.2272)
 color = Color(0.678711, 0.504164, 0.358791, 1)
 energy = 0.45
 texture = SubResource("GradientTexture2D_r7wah")
-
-[node name="WalkingAudio" type="AudioStreamPlayer2D" parent="RPGPlayer"]
-stream = ExtResource("7_uw6i7")
-parameters/looping = true
 
 [node name="NPC" parent="." instance=ExtResource("6_llc7g")]
 position = Vector2(1992, 317)

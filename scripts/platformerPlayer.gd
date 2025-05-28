@@ -8,6 +8,9 @@ extends CharacterBody2D
 @onready var deathscreen: Control = $CanvasLayer/Control
 @onready var gun: Node2D = $Node2D/Gun
 @onready var ui: CanvasLayer = $"../UI"
+@onready var run_audio: AudioStreamPlayer2D = $RunAudio
+@onready var jumping_audio: AudioStreamPlayer2D = $JumpingAudio
+
 
 const TARGETSPEED = 350.0
 const JUMP_VELOCITY = 800.0
@@ -49,6 +52,7 @@ func jump():
 		if Input.is_action_just_pressed("jump") or jumpBuffer:
 			velocity.y = -JUMP_VELOCITY
 			jumpBuffer = false
+			jumping_audio.play()
 	else:
 		if Input.is_action_just_released("jump") and velocity.y < 0:
 			velocity.y *= 0.5
@@ -69,8 +73,12 @@ func move():
 			animSpr.play("run", -1, -1)
 		else:
 			animSpr.play("run")
+		if not run_audio.playing:
+			run_audio.play()
 	elif not animSpr.is_playing() or animSpr.animation != "reload":
 		animSpr.play("idle")
+		if run_audio.playing:
+			run_audio.stop()
 
 	if is_on_floor():
 		velocity.x = move_toward(velocity.x, float(direction * TARGETSPEED) if direction else 0.0, 60)
@@ -102,12 +110,9 @@ func _on_bullet_hit():
 		animSpr.play("dead")
 		deathscreen.show()
 		set_physics_process(false)
-<<<<<<< HEAD
 
 
 func _on_fall_death_death() -> void:
 	animSpr.play("dead")
 	deathscreen.show()
 	set_physics_process(false)
-=======
->>>>>>> eb2ea85023fc6bb1a578b945c20dd3daad267f17

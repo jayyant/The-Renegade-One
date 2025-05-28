@@ -13,6 +13,7 @@ const TOTHP = 100
 @onready var stoprc: RayCast2D = $StopRC
 @onready var gunColl: CollisionShape2D = $GunCollission
 @onready var shootrc: RayCast2D = $RayCast2D
+@onready var death: AudioStreamPlayer2D = $Death
 
 var target_enemy: CharacterBody2D = null
 var movable: bool = true
@@ -27,6 +28,7 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	if get_meta("isdead"):
+		death.play()
 		set_physics_process(false)
 		return
 

@@ -8,6 +8,8 @@ extends Node2D
 @onready var shootPos: Node2D = $Position
 @onready var camera: Camera2D = %Camera2D
 @onready var pivot: Node2D = $".."
+@onready var fire_audio: AudioStreamPlayer2D = $FireAudio
+@onready var reload_audio: AudioStreamPlayer2D = $ReloadAudio
 
 const MAGAZINETOTAL = 10
 signal reloadgun  # Define this signal in the gun script
@@ -24,6 +26,7 @@ func _process(delta: float) -> void:
 	label.text=str(mag)+"/10"
 	if mag == 0 or (Input.is_action_pressed("reload") and not reloading):
 		reload()
+		reload_audio.play()
 
 func _physics_process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
@@ -41,6 +44,7 @@ func _physics_process(_delta: float) -> void:
 
 	if Input.is_action_pressed("shoot") and canFire and not reloading:
 		fire()
+		fire_audio.play()
 
 func fire():
 	mag -= 1

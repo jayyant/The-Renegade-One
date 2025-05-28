@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 150.0
 const GRAVITY = 980.0
-const TOTHP = 150
+const TOTHP = 100
 
 @onready var animSpr: AnimatedSprite2D = $AnimatedSprite2D
 @onready var player: CharacterBody2D = %Player
@@ -14,6 +14,7 @@ const TOTHP = 150
 @onready var stoprc: RayCast2D = $StopRC
 @onready var gunColl: CollisionShape2D = $GunCollission
 @onready var shootrc: RayCast2D = $RayCast2D
+@onready var death: AudioStreamPlayer2D = $Death
 
 var movable: bool = true
 var last_direction = 1
@@ -27,6 +28,7 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	if get_meta("isdead"):
+		death.play()
 		set_physics_process(false)
 		return
 
@@ -102,7 +104,7 @@ func _on_bullet_hit():
 		return
 
 	print(name, " hit! Current HP:", get_meta("hp"))
-	set_meta("hp", get_meta("hp") - 10)
+	set_meta("hp", get_meta("hp") - 50)
 
 	if get_meta("hp") <= 0:
 		die()
